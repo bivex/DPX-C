@@ -1,0 +1,1649 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-C",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-C-INTRUSIVE_LIST_TREE",
+              "name": "intrusive_list_tree",
+              "shortDescription": {
+                "text": "C Pattern: Intrusive List Tree"
+              },
+              "fullDescription": {
+                "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/lstate.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+              },
+              "properties": {
+                "category": "kernel_idiom"
+              }
+            },
+            {
+              "id": "DPX-C-ADAPTER_WRAPPER",
+              "name": "adapter_wrapper",
+              "shortDescription": {
+                "text": "C Pattern: Adapter Wrapper"
+              },
+              "fullDescription": {
+                "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/loslib.c' implements Adapter / Hardware Abstraction Layer (HAL) defining 10 uniform platform wrapper(s)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-FACADE_HEADER",
+              "name": "facade_header",
+              "shortDescription": {
+                "text": "C Pattern: Facade Header"
+              },
+              "fullDescription": {
+                "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/llimits.h' serves as a Subsystem Facade aggregating 5 internal module headers into a single public interface"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-UNSAFE_STRING_FUNCTION",
+              "name": "unsafe_string_function",
+              "shortDescription": {
+                "text": "C Pattern: Unsafe String Function"
+              },
+              "fullDescription": {
+                "text": "Security / Buffer Overflow Vulnerability: Function 'tostringbuffFloat()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+              "name": "memory_leak_missing_free",
+              "shortDescription": {
+                "text": "C Pattern: Memory Leak Missing Free"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk (Potential Leak): Function 'opencheck()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/liolib.c' allocates local resources without deallocating them or returning them to caller"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-GOD_C_FILE_SRP",
+              "name": "god_c_file_srp",
+              "shortDescription": {
+                "text": "C Pattern: God C File Srp"
+              },
+              "fullDescription": {
+                "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lauxlib.c' defines 58 functions across 1216 lines of code, indicating multiple mixed domain responsibilities"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+              "name": "cyclomatic_complexity_kiss",
+              "shortDescription": {
+                "text": "C Pattern: Cyclomatic Complexity Kiss"
+              },
+              "fullDescription": {
+                "text": "KISS Violation (High Complexity): Function 'intarith()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/lstate.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstate.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/lstring.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstring.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.h' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/lstring.h' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstring.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/lfunc.h' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lfunc.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-ADAPTER_WRAPPER",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/lua/loslib.c' implements Adapter / Hardware Abstraction Layer (HAL) defining 10 uniform platform wrapper(s)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/loslib.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/llimits.h' serves as a Subsystem Facade aggregating 5 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/llimits.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/ldo.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldo.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/lstate.h' serves as a Subsystem Facade aggregating 5 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstate.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/lauxlib.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lauxlib.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/lctype.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lctype.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/lua/lundump.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lundump.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'tostringbuffFloat()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c"
+                },
+                "region": {
+                  "startLine": 361,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'pushbuff()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c"
+                },
+                "region": {
+                  "startLine": 433,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'num2straux()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 963,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'MAX_ITEMF()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1012,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'quotefloat()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1068,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'addliteral()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1092,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'format()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1161,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'str_format()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1180,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'db_debug()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ldblib.c' calls bounds-unsafe string API (gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldblib.c"
+                },
+                "region": {
+                  "startLine": 380,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'warnf()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c' calls bounds-unsafe string API (strcat); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c"
+                },
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'opencheck()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/liolib.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/liolib.c"
+                },
+                "region": {
+                  "startLine": 234,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'io_open()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/liolib.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/liolib.c"
+                },
+                "region": {
+                  "startLine": 242,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lauxlib.c' defines 58 functions across 1216 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lauxlib.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/liolib.c' defines 42 functions across 842 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/liolib.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lmathlib.c' defines 49 functions across 766 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lmathlib.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c' defines 48 functions across 1979 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' defines 65 functions across 1901 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lua.c' defines 31 functions across 795 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lua.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c' defines 49 functions across 1356 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c' defines 68 functions across 1805 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c' defines 105 functions across 1971 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lapi.c' defines 80 functions across 1480 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lapi.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c' defines 35 functions across 980 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c' defines 59 functions across 2194 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c' defines 95 functions across 2248 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/lua/ldo.c' defines 42 functions across 1193 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldo.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'intarith()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c"
+                },
+                "region": {
+                  "startLine": 93,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaO_rawarith()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c"
+                },
+                "region": {
+                  "startLine": 129,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'lua_strx2number()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c' has cyclomatic complexity of 18; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lobject.c"
+                },
+                "region": {
+                  "startLine": 195,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaV_equalobj()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c' has cyclomatic complexity of 28; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c"
+                },
+                "region": {
+                  "startLine": 473,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaV_finishOp()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c' has cyclomatic complexity of 23; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c"
+                },
+                "region": {
+                  "startLine": 715,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'vmdispatch()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c' has cyclomatic complexity of 58; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lvm.c"
+                },
+                "region": {
+                  "startLine": 990,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'str_format()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' has cyclomatic complexity of 27; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1180,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'getoption()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' has cyclomatic complexity of 26; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1377,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'str_pack()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' has cyclomatic complexity of 17; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1480,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'str_unpack()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lstrlib.c"
+                },
+                "region": {
+                  "startLine": 1634,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lua.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lua.c"
+                },
+                "region": {
+                  "startLine": 628,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'collectargs()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lua.c' has cyclomatic complexity of 19; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lua.c"
+                },
+                "region": {
+                  "startLine": 244,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'equalkey()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c"
+                },
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaH_finishset()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltable.c"
+                },
+                "region": {
+                  "startLine": 928,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaC_newobjdt()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c"
+                },
+                "region": {
+                  "startLine": 252,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'traverseephemeron()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c"
+                },
+                "region": {
+                  "startLine": 413,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'singlestep()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lgc.c"
+                },
+                "region": {
+                  "startLine": 1291,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'db_getinfo()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ldblib.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldblib.c"
+                },
+                "region": {
+                  "startLine": 119,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'byteoffset()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lutf8lib.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lutf8lib.c"
+                },
+                "region": {
+                  "startLine": 159,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaK_dischargevars()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c"
+                },
+                "region": {
+                  "startLine": 647,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaK_infix()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c' has cyclomatic complexity of 25; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c"
+                },
+                "region": {
+                  "startLine": 1419,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaK_posfix()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c' has cyclomatic complexity of 28; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c"
+                },
+                "region": {
+                  "startLine": 1481,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaK_finish()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lcode.c"
+                },
+                "region": {
+                  "startLine": 1609,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'lua_gc()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lapi.c' has cyclomatic complexity of 17; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lapi.c"
+                },
+                "region": {
+                  "startLine": 1114,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'funcnamefromcall()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c"
+                },
+                "region": {
+                  "startLine": 287,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'isEnv()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c' has cyclomatic complexity of 29; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c"
+                },
+                "region": {
+                  "startLine": 526,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'luaG_traceexec()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ldebug.c"
+                },
+                "region": {
+                  "startLine": 825,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'check_readonly()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c"
+                },
+                "region": {
+                  "startLine": 239,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'searchvar()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c"
+                },
+                "region": {
+                  "startLine": 349,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'funcargs()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c' has cyclomatic complexity of 123; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/lparser.c"
+                },
+                "region": {
+                  "startLine": 992,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'read_string()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/llex.c' has cyclomatic complexity of 24; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/llex.c"
+                },
+                "region": {
+                  "startLine": 362,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'llex()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/llex.c' has cyclomatic complexity of 54; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/llex.c"
+                },
+                "region": {
+                  "startLine": 425,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'warnf()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c' has cyclomatic complexity of 20; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c"
+                },
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'lua_printvalue()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c"
+                },
+                "region": {
+                  "startLine": 295,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'getnum_aux()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c"
+                },
+                "region": {
+                  "startLine": 1439,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'EQ()' in '/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c' has cyclomatic complexity of 208; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/lua/ltests.c"
+                },
+                "region": {
+                  "startLine": 1523,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

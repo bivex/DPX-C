@@ -1,0 +1,2748 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-C",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-C-FACADE_HEADER",
+              "name": "facade_header",
+              "shortDescription": {
+                "text": "C Pattern: Facade Header"
+              },
+              "fullDescription": {
+                "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzguts.h' serves as a Subsystem Facade aggregating 11 internal module headers into a single public interface"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-COMPOSITE_TREE",
+              "name": "composite_tree",
+              "shortDescription": {
+                "text": "C Pattern: Composite Tree"
+              },
+              "fullDescription": {
+                "text": "Struct 'linkedlist_data' implements Composite Tree Pattern containing recursive child node links (first_block, last_block)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-STRATEGY_FUNCTION_POINTER",
+              "name": "strategy_function_pointer",
+              "shortDescription": {
+                "text": "C Pattern: Strategy Function Pointer"
+              },
+              "fullDescription": {
+                "text": "Function 'ZSWAP32()' accepts strategy function pointer parameter 'init' for dynamic algorithm injection"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-C-UNCHECKED_MALLOC_RETURN",
+              "name": "unchecked_malloc_return",
+              "shortDescription": {
+                "text": "C Pattern: Unchecked Malloc Return"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk: Function 'malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-UNSAFE_STRING_FUNCTION",
+              "name": "unsafe_string_function",
+              "shortDescription": {
+                "text": "C Pattern: Unsafe String Function"
+              },
+              "fullDescription": {
+                "text": "Security / Buffer Overflow Vulnerability: Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+              "name": "memory_leak_missing_free",
+              "shortDescription": {
+                "text": "C Pattern: Memory Leak Missing Free"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk (Potential Leak): Function 'malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c' allocates local resources without deallocating them or returning them to caller"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-DOUBLE_FREE_RISK",
+              "name": "double_free_risk",
+              "shortDescription": {
+                "text": "C Pattern: Double Free Risk"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Hazard (Double Free Risk): Function 'gz_open()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' calls free() multiple times on the same pointer variable"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-GOD_C_FILE_SRP",
+              "name": "god_c_file_srp",
+              "shortDescription": {
+                "text": "C Pattern: God C File Srp"
+              },
+              "fullDescription": {
+                "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/zlib/inflate.c' defines 21 functions across 1414 lines of code, indicating multiple mixed domain responsibilities"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+              "name": "cyclomatic_complexity_kiss",
+              "shortDescription": {
+                "text": "C Pattern: Cyclomatic Complexity Kiss"
+              },
+              "fullDescription": {
+                "text": "KISS Violation (High Complexity): Function 'UPDATE_CHECK()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/inflate.c' has cyclomatic complexity of 157; refactor nested branches or use table dispatch"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-C-DUPLICATE_CODE_DRY",
+              "name": "duplicate_code_dry",
+              "shortDescription": {
+                "text": "C Pattern: Duplicate Code Dry"
+              },
+              "fullDescription": {
+                "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/zlib/infback.c:LOAD, /Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/infback9.c:INITBITS"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzguts.h' serves as a Subsystem Facade aggregating 11 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzguts.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/zlib/zconf.h' serves as a Subsystem Facade aggregating 8 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/zconf.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/ioapi.h' serves as a Subsystem Facade aggregating 5 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/ioapi.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'linkedlist_data' implements Composite Tree Pattern containing recursive child node links (first_block, last_block)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 100,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-STRATEGY_FUNCTION_POINTER",
+          "level": "note",
+          "message": {
+            "text": "Function 'ZSWAP32()' accepts strategy function pointer parameter 'init' for dynamic algorithm injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.h"
+                },
+                "region": {
+                  "startLine": 247,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-STRATEGY_FUNCTION_POINTER",
+          "level": "note",
+          "message": {
+            "text": "Function 'z_once()' accepts strategy function pointer parameter 'init' for dynamic algorithm injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.h"
+                },
+                "region": {
+                  "startLine": 297,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-STRATEGY_FUNCTION_POINTER",
+          "level": "note",
+          "message": {
+            "text": "Function 'open()' accepts strategy function pointer parameter 'f' for dynamic algorithm injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/iostream3/zfstream.h"
+                },
+                "region": {
+                  "startLine": 190,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c"
+                },
+                "region": {
+                  "startLine": 270,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c"
+                },
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'gz_open()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'gzdopen()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c"
+                },
+                "region": {
+                  "startLine": 285,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'gz_error()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' calls bounds-unsafe string API (strcpy, strcat); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c"
+                },
+                "region": {
+                  "startLine": 537,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c"
+                },
+                "region": {
+                  "startLine": 376,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'gzprintf()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c"
+                },
+                "region": {
+                  "startLine": 469,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'try()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/infcover.c' calls bounds-unsafe string API (strcpy, strcat); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/infcover.c"
+                },
+                "region": {
+                  "startLine": 458,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'test_compress()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'test_gzio()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'test_inflate()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c"
+                },
+                "region": {
+                  "startLine": 194,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'test_large_inflate()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c"
+                },
+                "region": {
+                  "startLine": 280,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'test_sync()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c"
+                },
+                "region": {
+                  "startLine": 350,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'test_dict_inflate()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c"
+                },
+                "region": {
+                  "startLine": 421,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/minizip.c' calls bounds-unsafe string API (strcat); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/minizip.c"
+                },
+                "region": {
+                  "startLine": 225,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c' calls bounds-unsafe string API (strcat); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c"
+                },
+                "region": {
+                  "startLine": 501,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'BAIL()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_touch()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 141,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_check()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 152,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_unlock()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_append()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 247,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_replace()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 307,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_compress()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 335,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_log()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 441,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_recover()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 458,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'log_open()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 527,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'gzlog_compress()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 616,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'gzlog_write()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 697,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'gzlog_close()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 740,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c"
+                },
+                "region": {
+                  "startLine": 270,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'mem_setup()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/infcover.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/infcover.c"
+                },
+                "region": {
+                  "startLine": 122,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'file_uncompress()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c"
+                },
+                "region": {
+                  "startLine": 415,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c"
+                },
+                "region": {
+                  "startLine": 458,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'fopen_file_func()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/ioapi.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/ioapi.c"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'win32_build_iowin()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/iowin32.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/iowin32.c"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/testzlib/testzlib.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/testzlib/testzlib.c"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gznorm.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gznorm.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'string_init()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/enough.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/enough.c"
+                },
+                "region": {
+                  "startLine": 42,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'gz_open()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'mem_free()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/infcover.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/infcover.c"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'gz_open()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c"
+                },
+                "region": {
+                  "startLine": 174,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'unzOpenCurrentFile3()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 1184,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'makedir()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c"
+                },
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/pufftest.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/pufftest.c"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/fitblk.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/fitblk.c"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'log_recover()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 458,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'gzlog_compress()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 616,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/zlib/inflate.c' defines 21 functions across 1414 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/inflate.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' defines 32 functions across 2186 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/zlib/zlib.h' defines 0 functions across 2058 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/zlib.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/zlib/crc32.h' defines 0 functions across 9447 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/crc32.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' defines 43 functions across 1983 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c' defines 50 functions across 2253 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UPDATE_CHECK()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/inflate.c' has cyclomatic complexity of 157; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/inflate.c"
+                },
+                "region": {
+                  "startLine": 211,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'fill_window()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 19; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'deflateInit2_()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 263,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'deflateBound_z()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 664,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'HCRC_UPDATE()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 58; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 766,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'MIN()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 25; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 1363,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'deflate_fast()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 1521,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'deflate_slow()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 20; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 1597,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'deflate_rle()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/deflate.c"
+                },
+                "region": {
+                  "startLine": 1697,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gz_read()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzread.c' has cyclomatic complexity of 16; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzread.c"
+                },
+                "region": {
+                  "startLine": 263,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'crc32_z()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/crc32.c' has cyclomatic complexity of 73; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/crc32.c"
+                },
+                "region": {
+                  "startLine": 495,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'inflateBack()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/infback.c' has cyclomatic complexity of 59; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/infback.c"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'zlibCompileFlags()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/zutil.c"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gz_open()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' has cyclomatic complexity of 39; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c"
+                },
+                "region": {
+                  "startLine": 76,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gzseek64()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzlib.c"
+                },
+                "region": {
+                  "startLine": 354,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'inflate_table()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/inftrees.c' has cyclomatic complexity of 35; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/inftrees.c"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gz_comp()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c' has cyclomatic complexity of 16; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c"
+                },
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gz_write()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c"
+                },
+                "region": {
+                  "startLine": 170,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c"
+                },
+                "region": {
+                  "startLine": 376,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gzprintf()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/gzwrite.c"
+                },
+                "region": {
+                  "startLine": 469,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'tr_static_init()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/trees.c' has cyclomatic complexity of 16; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/trees.c"
+                },
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'SEPARATOR()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/trees.c' has cyclomatic complexity of 84; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/trees.c"
+                },
+                "region": {
+                  "startLine": 303,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'message()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/inffast.c' has cyclomatic complexity of 44; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/inffast.c"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'DO2()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/adler32.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/adler32.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'test_gzio()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/example.c"
+                },
+                "region": {
+                  "startLine": 81,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c' has cyclomatic complexity of 30; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/test/minigzip.c"
+                },
+                "region": {
+                  "startLine": 458,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'unz64local_SearchCentralDir64()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' has cyclomatic complexity of 22; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 303,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'unzOpenInternal()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' has cyclomatic complexity of 30; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 400,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'unz64local_GetCurrentFileInfoInternal()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' has cyclomatic complexity of 51; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 659,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'unz64local_CheckCurrentFileCoherencyHeader()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' has cyclomatic complexity of 26; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 1104,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'unzOpenCurrentFile3()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' has cyclomatic complexity of 22; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 1184,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'unzReadCurrentFile()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c' has cyclomatic complexity of 26; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/unzip.c"
+                },
+                "region": {
+                  "startLine": 1378,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'zip64local_SearchCentralDir64()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c' has cyclomatic complexity of 22; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'LoadCentralDirectoryRecord()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c' has cyclomatic complexity of 33; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 793,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'Write_LocalFileHeader()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 1098,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'zipOpenNewFileInZip4_64()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c' has cyclomatic complexity of 32; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 1221,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'zipWriteInFileInZip()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 1570,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'zipCloseFileInZipRaw64()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c' has cyclomatic complexity of 30; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/zip.c"
+                },
+                "region": {
+                  "startLine": 1675,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'READ_8()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/mztools.c' has cyclomatic complexity of 40; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/mztools.c"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/minizip.c' has cyclomatic complexity of 42; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/minizip.c"
+                },
+                "region": {
+                  "startLine": 225,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'do_list()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c' has cyclomatic complexity of 16; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c"
+                },
+                "region": {
+                  "startLine": 207,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'do_extract_currentfile()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c' has cyclomatic complexity of 32; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c"
+                },
+                "region": {
+                  "startLine": 283,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c' has cyclomatic complexity of 24; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/miniunz.c"
+                },
+                "region": {
+                  "startLine": 501,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'inflate_table9()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/inftree9.c' has cyclomatic complexity of 37; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/inftree9.c"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'makefixed9()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/infback9.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/infback9.c"
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'inflateBack9()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/infback9.c' has cyclomatic complexity of 59; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/infback9.c"
+                },
+                "region": {
+                  "startLine": 164,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'decomp()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/blast/blast.c' has cyclomatic complexity of 16; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/blast/blast.c"
+                },
+                "region": {
+                  "startLine": 162,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/pufftest.c' has cyclomatic complexity of 18; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/pufftest.c"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'codes()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/puff.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/puff.c"
+                },
+                "region": {
+                  "startLine": 210,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'dynamic()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/puff.c' has cyclomatic complexity of 17; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/puff/puff.c"
+                },
+                "region": {
+                  "startLine": 330,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'BYE()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gznorm.c' has cyclomatic complexity of 43; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gznorm.c"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/fitblk.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/fitblk.c"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'examine()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/enough.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/enough.c"
+                },
+                "region": {
+                  "startLine": 216,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/enough.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/enough.c"
+                },
+                "region": {
+                  "startLine": 353,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gzcopy()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzjoin.c' has cyclomatic complexity of 21; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzjoin.c"
+                },
+                "region": {
+                  "startLine": 221,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'lunpipe()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c' has cyclomatic complexity of 24; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c"
+                },
+                "region": {
+                  "startLine": 124,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gunpipe()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c' has cyclomatic complexity of 25; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gunzip()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c' has cyclomatic complexity of 23; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c"
+                },
+                "region": {
+                  "startLine": 439,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gun.c"
+                },
+                "region": {
+                  "startLine": 521,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'log_compress()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 335,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gzlog_compress()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzlog.c"
+                },
+                "region": {
+                  "startLine": 616,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'deflate_index_build()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/zran.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/zran.c"
+                },
+                "region": {
+                  "startLine": 105,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'deflate_index_extract()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/zran.c' has cyclomatic complexity of 24; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/zran.c"
+                },
+                "region": {
+                  "startLine": 313,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/zran.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/zran.c"
+                },
+                "region": {
+                  "startLine": 451,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gzscan()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzappend.c' has cyclomatic complexity of 22; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzappend.c"
+                },
+                "region": {
+                  "startLine": 181,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'gztack()' in '/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzappend.c' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/examples/gzappend.c"
+                },
+                "region": {
+                  "startLine": 309,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/zlib/infback.c:LOAD, /Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/infback9.c:INITBITS"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/infback.c"
+                },
+                "region": {
+                  "startLine": 55,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/zlib/infback.c:inflateBackEnd, /Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/infback9/infback9.c:inflateBack9End"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/infback.c"
+                },
+                "region": {
+                  "startLine": 524,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/iowin32.c:win32_open64_file_func, /Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/iowin32.c:win32_open_file_func"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/zlib/contrib/minizip/iowin32.c"
+                },
+                "region": {
+                  "startLine": 80,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1981 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-C",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-C-INTRUSIVE_LIST_TREE",
+              "name": "intrusive_list_tree",
+              "shortDescription": {
+                "text": "C Pattern: Intrusive List Tree"
+              },
+              "fullDescription": {
+                "text": "File '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test22.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+              },
+              "properties": {
+                "category": "kernel_idiom"
+              }
+            },
+            {
+              "id": "DPX-C-COMPOSITE_TREE",
+              "name": "composite_tree",
+              "shortDescription": {
+                "text": "C Pattern: Composite Tree"
+              },
+              "fullDescription": {
+                "text": "Struct 'el' implements Composite Tree Pattern containing recursive child node links (next, next)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-STRATEGY_FUNCTION_POINTER",
+              "name": "strategy_function_pointer",
+              "shortDescription": {
+                "text": "C Pattern: Strategy Function Pointer"
+              },
+              "fullDescription": {
+                "text": "Function 'foo_cache_create()' accepts strategy function pointer parameter 'free_cb' for dynamic algorithm injection"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-C-GOTO_CLEANUP_IDIOM",
+              "name": "goto_cleanup_idiom",
+              "shortDescription": {
+                "text": "C Pattern: Goto Cleanup Idiom"
+              },
+              "fullDescription": {
+                "text": "Function 'foo_cache_create()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+              },
+              "properties": {
+                "category": "resilience_cleanup"
+              }
+            },
+            {
+              "id": "DPX-C-UNCHECKED_MALLOC_RETURN",
+              "name": "unchecked_malloc_return",
+              "shortDescription": {
+                "text": "C Pattern: Unchecked Malloc Return"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk: Function 'utringbuffer_init()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-UNSAFE_STRING_FUNCTION",
+              "name": "unsafe_string_function",
+              "shortDescription": {
+                "text": "C Pattern: Unsafe String Function"
+              },
+              "fullDescription": {
+                "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+              "name": "memory_leak_missing_free",
+              "shortDescription": {
+                "text": "C Pattern: Memory Leak Missing Free"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c' allocates local resources without deallocating them or returning them to caller"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-DOUBLE_FREE_RISK",
+              "name": "double_free_risk",
+              "shortDescription": {
+                "text": "C Pattern: Double Free Risk"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Hazard (Double Free Risk): Function 'HS_BIT_TEST()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' calls free() multiple times on the same pointer variable"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-GOD_C_FILE_SRP",
+              "name": "god_c_file_srp",
+              "shortDescription": {
+                "text": "C Pattern: God C File Srp"
+              },
+              "fullDescription": {
+                "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' defines 53 functions across 1210 lines of code, indicating multiple mixed domain responsibilities"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+              "name": "cyclomatic_complexity_kiss",
+              "shortDescription": {
+                "text": "C Pattern: Cyclomatic Complexity Kiss"
+              },
+              "fullDescription": {
+                "text": "KISS Violation (High Complexity): Function 'uthash_expand_fyi()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-C-DUPLICATE_CODE_DRY",
+              "name": "duplicate_code_dry",
+              "shortDescription": {
+                "text": "C Pattern: Duplicate Code Dry"
+              },
+              "fullDescription": {
+                "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:idcmp, /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c:EVENS"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test22.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test22.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-INTRUSIVE_LIST_TREE",
+          "level": "note",
+          "message": {
+            "text": "File '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'el' implements Composite Tree Pattern containing recursive child node links (next, next)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test95.c"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'List' implements Composite Tree Pattern containing recursive child node links (prev, next)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test102.c"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'List' implements Composite Tree Pattern containing recursive child node links (prev, next)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test86.c"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'List' implements Composite Tree Pattern containing recursive child node links (prev, next)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test63.c"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'el' implements Composite Tree Pattern containing recursive child node links (prev, prev_list)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test94.c"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'UT_hash_handle' implements Composite Tree Pattern containing recursive child node links (hh_prev, hh_next)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h"
+                },
+                "region": {
+                  "startLine": 1031,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-STRATEGY_FUNCTION_POINTER",
+          "level": "note",
+          "message": {
+            "text": "Function 'foo_cache_create()' accepts strategy function pointer parameter 'free_cb' for dynamic algorithm injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'foo_cache_create()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'foo_cache_insert()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c"
+                },
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'utringbuffer_init()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'uthash_expand_fyi()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test26.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test26.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'HS_BIT_TEST()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' calls bounds-unsafe string API (gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c"
+                },
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test32.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test32.c"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test59.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test59.c"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test65.c' calls bounds-unsafe string API (gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test65.c"
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/emit_keys.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/emit_keys.c"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test31.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test31.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'uthash_expand_fyi()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test14.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test14.c"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test83.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test83.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test60.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test60.c"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'add_user()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test11.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test11.c"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test34.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test34.c"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test30.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test30.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test15.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test15.c"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test29.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test29.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test84.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test84.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test56.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test56.c"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test33.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test33.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'utarray_sort()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h"
+                },
+                "region": {
+                  "startLine": 200,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test85.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test85.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c"
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test19.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test19.c"
+                },
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test17.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test17.c"
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test38.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test38.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test9.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test9.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test10.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test10.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test96.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test96.c"
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test4.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test4.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/sleep_test.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/sleep_test.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'uthash_malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test89.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test89.c"
+                },
+                "region": {
+                  "startLine": 46,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'add_user()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test24.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test24.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test97.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test97.c"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test5.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test5.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test1.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test1.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'uthash_malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test23.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test23.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'uthash_malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test6.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test6.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test18.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test18.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test79.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test79.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test2.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test2.c"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test58.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test58.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test39.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test39.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'generate_random_string()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/main.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/main.c"
+                },
+                "region": {
+                  "startLine": 155,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/threads/test2.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/threads/test2.c"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'utarray_sort()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h"
+                },
+                "region": {
+                  "startLine": 200,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'utringbuffer_init()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'HS_BIT_TEST()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c"
+                },
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c"
+                },
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'foo_cache_insert()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c"
+                },
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' defines 53 functions across 1210 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'uthash_expand_fyi()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'HS_BIT_TEST()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' has cyclomatic complexity of 65; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c"
+                },
+                "region": {
+                  "startLine": 146,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c' has cyclomatic complexity of 28; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c"
+                },
+                "region": {
+                  "startLine": 95,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c' has cyclomatic complexity of 30; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c"
+                },
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'IF_NO_DECLTYPE()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' has cyclomatic complexity of 14; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'DL_SORT()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h"
+                },
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'CDL_SORT()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' has cyclomatic complexity of 18; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h"
+                },
+                "region": {
+                  "startLine": 179,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'HASH_SORT()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h' has cyclomatic complexity of 17; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h"
+                },
+                "region": {
+                  "startLine": 817,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:idcmp, /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c:EVENS"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test61.c:strsort, /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test46.c:strsort"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test61.c"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:uthash_malloc, /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c:uthash_malloc"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:CDL_APPEND, /Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:CDL_PREPEND"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h"
+                },
+                "region": {
+                  "startLine": 877,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_TO_TABLE, /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_KEYPTR_INORDER"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h"
+                },
+                "region": {
+                  "startLine": 312,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_KEYPTR, /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_CLEAR"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h"
+                },
+                "region": {
+                  "startLine": 392,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

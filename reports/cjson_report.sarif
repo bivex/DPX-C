@@ -1,0 +1,1981 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-C",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-C-FACADE_HEADER",
+              "name": "facade_header",
+              "shortDescription": {
+                "text": "C Pattern: Facade Header"
+              },
+              "fullDescription": {
+                "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_head1.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-COMPOSITE_TREE",
+              "name": "composite_tree",
+              "shortDescription": {
+                "text": "C Pattern: Composite Tree"
+              },
+              "fullDescription": {
+                "text": "Struct 'cJSON' implements Composite Tree Pattern containing recursive child node links (next, prev, child)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-STRATEGY_FUNCTION_POINTER",
+              "name": "strategy_function_pointer",
+              "shortDescription": {
+                "text": "C Pattern: Strategy Function Pointer"
+              },
+              "fullDescription": {
+                "text": "Function 'UNITY_INT_WIDTH()' accepts strategy function pointer parameter 'UnityTestFunction' for dynamic algorithm injection"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-C-GOTO_CLEANUP_IDIOM",
+              "name": "goto_cleanup_idiom",
+              "shortDescription": {
+                "text": "C Pattern: Goto Cleanup Idiom"
+              },
+              "fullDescription": {
+                "text": "Function 'utf16_literal_to_utf8()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+              },
+              "properties": {
+                "category": "resilience_cleanup"
+              }
+            },
+            {
+              "id": "DPX-C-UNCHECKED_MALLOC_RETURN",
+              "name": "unchecked_malloc_return",
+              "shortDescription": {
+                "text": "C Pattern: Unchecked Malloc Return"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk: Function 'internal_realloc()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-UNSAFE_STRING_FUNCTION",
+              "name": "unsafe_string_function",
+              "shortDescription": {
+                "text": "C Pattern: Unsafe String Function"
+              },
+              "fullDescription": {
+                "text": "Security / Buffer Overflow Vulnerability: Function 'CJSON_PUBLIC()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+              "name": "memory_leak_missing_free",
+              "shortDescription": {
+                "text": "C Pattern: Memory Leak Missing Free"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk (Potential Leak): Function 'push()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' allocates local resources without deallocating them or returning them to caller"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-DOUBLE_FREE_RISK",
+              "name": "double_free_risk",
+              "shortDescription": {
+                "text": "C Pattern: Double Free Risk"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Hazard (Double Free Risk): Function 'print_preallocated()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/test.c' calls free() multiple times on the same pointer variable"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-GOD_C_FILE_SRP",
+              "name": "god_c_file_srp",
+              "shortDescription": {
+                "text": "C Pattern: God C File Srp"
+              },
+              "fullDescription": {
+                "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' defines 36 functions across 3207 lines of code, indicating multiple mixed domain responsibilities"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+              "name": "cyclomatic_complexity_kiss",
+              "shortDescription": {
+                "text": "C Pattern: Cyclomatic Complexity Kiss"
+              },
+              "fullDescription": {
+                "text": "KISS Violation (High Complexity): Function 'can_read()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 26; refactor nested branches or use table dispatch"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-C-DUPLICATE_CODE_DRY",
+              "name": "duplicate_code_dry",
+              "shortDescription": {
+                "text": "C Pattern: Duplicate Code Dry"
+              },
+              "fullDescription": {
+                "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:compare_double, /Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:compare_double"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_head1.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_head1.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_head1.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_head1.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-FACADE_HEADER",
+          "level": "note",
+          "message": {
+            "text": "Header '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.h"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMPOSITE_TREE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'cJSON' implements Composite Tree Pattern containing recursive child node links (next, prev, child)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.h"
+                },
+                "region": {
+                  "startLine": 67,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-STRATEGY_FUNCTION_POINTER",
+          "level": "note",
+          "message": {
+            "text": "Function 'UNITY_INT_WIDTH()' accepts strategy function pointer parameter 'UnityTestFunction' for dynamic algorithm injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity_internals.h"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-STRATEGY_FUNCTION_POINTER",
+          "level": "note",
+          "message": {
+            "text": "Function 'UnityMain()' accepts strategy function pointer parameter 'runAllTests' for dynamic algorithm injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c"
+                },
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'utf16_literal_to_utf8()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 679,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'parse_string()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 798,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'cJSON_ParseWithLengthOpts()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1117,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'cjson_min()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1211,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'print_value()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1338,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'cJSON_Duplicate_rec()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 2758,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'apply_patch()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 785,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'LLVMFuzzerTestOneInput()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'main()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOTO_CLEANUP_IDIOM",
+          "level": "note",
+          "message": {
+            "text": "Function 'read_file()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/common.h"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'internal_realloc()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 153,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'LLVMFuzzerTestOneInput()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'LLVMFuzzerTestOneInput()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/cjson_read_fuzzer.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/cjson_read_fuzzer.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'ensure_should_fail_on_failed_realloc()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c"
+                },
+                "region": {
+                  "startLine": 497,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'cjson_minify_should_not_modify_strings()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'cjson_minify_should_minify_json()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c"
+                },
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'USING_SPY_AS()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_fixture_Test.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_fixture_Test.c"
+                },
+                "region": {
+                  "startLine": 344,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'UnityOutputCharSpy_Create()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'CJSON_PUBLIC()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 102,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'print_number()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 574,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'print_string_ptr()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (strcpy, sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 928,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'print_value()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1338,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'compose_patch()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 1074,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'create_patches()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 1119,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'do_test()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_examples.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_examples.c"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'parse_hex4_should_parse_all_combinations()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_hex4.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_hex4.c"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'cjson_minify_should_not_modify_strings()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'cjson_minify_should_minify_json()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c"
+                },
+                "region": {
+                  "startLine": 40,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c' calls bounds-unsafe string API (strcpy, sprintf); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c"
+                },
+                "region": {
+                  "startLine": 4514,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'push()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'ensure_should_fail_on_failed_realloc()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c"
+                },
+                "region": {
+                  "startLine": 497,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'UnityOutputCharSpy_Create()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'print_preallocated()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/test.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/test.c"
+                },
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'misc_tests()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/old_utils_tests.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/old_utils_tests.c"
+                },
+                "region": {
+                  "startLine": 68,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' defines 36 functions across 3207 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' defines 21 functions across 1482 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/cjson_add.c' defines 34 functions across 472 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/cjson_add.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c' defines 32 functions across 839 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c' defines 467 functions across 5338 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-GOD_C_FILE_SRP",
+          "level": "error",
+          "message": {
+            "text": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' defines 44 functions across 1571 lines of code, indicating multiple mixed domain responsibilities"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'can_read()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 26; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 279,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'utf16_literal_to_utf8()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 16; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 679,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'parse_string()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 22; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 798,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'print_string_ptr()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 24; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 928,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'cJSON_ParseWithLengthOpts()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1117,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'print_value()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 56; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1338,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'print_object()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 19; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 1754,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'cJSON_Duplicate_rec()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 2758,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'compare_json()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 582,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'apply_patch()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' has cyclomatic complexity of 36; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 785,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'create_patches()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' has cyclomatic complexity of 21; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c"
+                },
+                "region": {
+                  "startLine": 1119,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c"
+                },
+                "region": {
+                  "startLine": 65,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UnityPrintFloat()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 18; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c"
+                },
+                "region": {
+                  "startLine": 253,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UnityAssertGreaterOrLessOrEqualNumber()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c"
+                },
+                "region": {
+                  "startLine": 540,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UnityAssertFloatSpecial()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c"
+                },
+                "region": {
+                  "startLine": 758,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UnityAssertDoubleSpecial()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c"
+                },
+                "region": {
+                  "startLine": 888,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UnityAssertEqualStringArray()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c"
+                },
+                "region": {
+                  "startLine": 1068,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UnityParseOptions()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c"
+                },
+                "region": {
+                  "startLine": 1384,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'UnityGetCommandLineOptions()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c"
+                },
+                "region": {
+                  "startLine": 340,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:compare_double, /Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:compare_double"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c"
+                },
+                "region": {
+                  "startLine": 567,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:qwiktest_ThisTestPassesWhenNoSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:qwiktest_ThisTestPassesWhenNoSetupRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:qwiktest_ThisTestPassesWhenNoTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:qwiktest_ThisTestPassesWhenNoTeardownRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 64,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalSuiteSetupAndTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:spec_ThisTestPassesWhenNormalSuiteSetupAndTeardownRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorSmall.c:spec_ThisTestPassesWhenNormalSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:spec_ThisTestPassesWhenNormalSetupRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorSmall.c:spec_ThisTestPassesWhenNormalTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:spec_ThisTestPassesWhenNormalTeardownRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:custtest_ThisTestPassesWhenCustomSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:custtest_ThisTestPassesWhenCustomSetupRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 84,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:custtest_ThisTestPassesWhenCustomTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:custtest_ThisTestPassesWhenCustomTeardownRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 89,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:test_NotBeConfusedByLongComplicatedStrings, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:test_NotBeConfusedByLongComplicatedStrings"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 99,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:paratest_ShouldHandleParameterizedTests, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:paratest_ShouldHandleParameterizedTests"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 114,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:extest_ShouldHandleCExceptionInTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:extest_ShouldHandleCExceptionInTest"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 136,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:suitetest_ThisTestPassesWhenCustomSuiteSetupAndTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:suitetest_ThisTestPassesWhenCustomSuiteSetupAndTeardownRan"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c"
+                },
+                "region": {
+                  "startLine": 150,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testparameterized.c:setUp, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:startPutcharSpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testparameterized.c"
+                },
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualUINT8Arrays1, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualUINT8Arrays2, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualUINT8Arrays3"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c"
+                },
+                "region": {
+                  "startLine": 2549,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEXArrays1, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEX32Arrays1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c"
+                },
+                "region": {
+                  "startLine": 2682,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEXArrays2, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEX32Arrays2"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c"
+                },
+                "region": {
+                  "startLine": 2692,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 8 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_run1.c:RUN_TEST, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c:RUN_TEST, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:RUN_TEST"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_run1.c"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 9 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c:resetTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_def.c:resetTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:resetTest"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:setUp, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_new1.c:setUp"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c"
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnZeroIfItemIsNotInList_WhichWorksEvenInOurBrokenCode, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnZeroIfItemIsNotInList_WhichWorksEvenInOurBrokenCode"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnTheIndexForItemsInList_WhichWillFailBecauseOurFunctionUnderTestIsBroken, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnTheIndexForItemsInList_WhichWillFailBecauseOurFunctionUnderTestIsBroken"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValue, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValueAgain, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValueAgain"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnCurrentCounter_ButFailsBecauseThisTestIsActuallyFlawed, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnCurrentCounter_ButFailsBecauseThisTestIsActuallyFlawed"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c"
+                },
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode2.c:test_AnotherIgnoredTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode2.c:test_AnotherIgnoredTest"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode2.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/src/ProductionCode.c:FindFunction_WhichIsBroken, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_2/src/ProductionCode.c:FindFunction_WhichIsBroken, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/src/ProductionCode.c:FindFunction_WhichIsBroken"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/src/ProductionCode.c"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

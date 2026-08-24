@@ -1,0 +1,1933 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-C/benchmarks/uthash",
+  "scanned_files_count": 118,
+  "total_detections_count": 91,
+  "elapsed_seconds": 0.0741,
+  "summary_by_category": {
+    "kernel_idiom": 3,
+    "structural": 6,
+    "behavioral": 1,
+    "resilience_cleanup": 2,
+    "memory_safety": 63,
+    "principle": 16
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 0,
+    "high": 53,
+    "very_high": 38
+  },
+  "detections": [
+    {
+      "pattern_type": "intrusive_list_tree",
+      "pattern_category": "kernel_idiom",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test22.c",
+      "target_kind": "intrusive_structure_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test22.c:1:1",
+      "evidences": [
+        {
+          "description": "File '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test22.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)",
+          "weight": 0.85,
+          "rule_code": "INTRUSIVE_LIST_CONTAINER_OF",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test22.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "intrusive_list_tree",
+      "pattern_category": "kernel_idiom",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c",
+      "target_kind": "intrusive_structure_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:1:1",
+      "evidences": [
+        {
+          "description": "File '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)",
+          "weight": 0.85,
+          "rule_code": "INTRUSIVE_LIST_CONTAINER_OF",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "intrusive_list_tree",
+      "pattern_category": "kernel_idiom",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c",
+      "target_kind": "intrusive_structure_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c:1:1",
+      "evidences": [
+        {
+          "description": "File '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c' implements Intrusive Data Structure pattern (zero-allocation intrusive nodes resolved via `container_of` / `offsetof`)",
+          "weight": 0.85,
+          "rule_code": "INTRUSIVE_LIST_CONTAINER_OF",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "composite_tree",
+      "pattern_category": "structural",
+      "target_name": "el",
+      "target_kind": "composite_tree_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test95.c:5:1",
+      "evidences": [
+        {
+          "description": "Struct 'el' implements Composite Tree Pattern containing recursive child node links (next, next)",
+          "weight": 0.85,
+          "rule_code": "COMPOSITE_RECURSIVE_TREE_STRUCT",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test95.c:5:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "composite_tree",
+      "pattern_category": "structural",
+      "target_name": "List",
+      "target_kind": "composite_tree_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test102.c:6:1",
+      "evidences": [
+        {
+          "description": "Struct 'List' implements Composite Tree Pattern containing recursive child node links (prev, next)",
+          "weight": 0.85,
+          "rule_code": "COMPOSITE_RECURSIVE_TREE_STRUCT",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test102.c:6:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "composite_tree",
+      "pattern_category": "structural",
+      "target_name": "List",
+      "target_kind": "composite_tree_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test86.c:6:1",
+      "evidences": [
+        {
+          "description": "Struct 'List' implements Composite Tree Pattern containing recursive child node links (prev, next)",
+          "weight": 0.85,
+          "rule_code": "COMPOSITE_RECURSIVE_TREE_STRUCT",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test86.c:6:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "composite_tree",
+      "pattern_category": "structural",
+      "target_name": "List",
+      "target_kind": "composite_tree_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test63.c:4:1",
+      "evidences": [
+        {
+          "description": "Struct 'List' implements Composite Tree Pattern containing recursive child node links (prev, next)",
+          "weight": 0.85,
+          "rule_code": "COMPOSITE_RECURSIVE_TREE_STRUCT",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test63.c:4:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "composite_tree",
+      "pattern_category": "structural",
+      "target_name": "el",
+      "target_kind": "composite_tree_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test94.c:4:1",
+      "evidences": [
+        {
+          "description": "Struct 'el' implements Composite Tree Pattern containing recursive child node links (prev, prev_list)",
+          "weight": 0.85,
+          "rule_code": "COMPOSITE_RECURSIVE_TREE_STRUCT",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test94.c:4:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "composite_tree",
+      "pattern_category": "structural",
+      "target_name": "UT_hash_handle",
+      "target_kind": "composite_tree_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:1031:1",
+      "evidences": [
+        {
+          "description": "Struct 'UT_hash_handle' implements Composite Tree Pattern containing recursive child node links (hh_prev, hh_next)",
+          "weight": 0.85,
+          "rule_code": "COMPOSITE_RECURSIVE_TREE_STRUCT",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:1031:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_function_pointer",
+      "pattern_category": "behavioral",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:foo_cache_create",
+      "target_kind": "strategy_delegator_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:26:1",
+      "evidences": [
+        {
+          "description": "Function 'foo_cache_create()' accepts strategy function pointer parameter 'free_cb' for dynamic algorithm injection",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_FUNCTION_POINTER_PARAM",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:foo_cache_create",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:26:1",
+      "evidences": [
+        {
+          "description": "Function 'foo_cache_create()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:foo_cache_insert",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:111:1",
+      "evidences": [
+        {
+          "description": "Function 'foo_cache_insert()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:111:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h:utringbuffer_init",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h:21:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'utringbuffer_init()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h:21:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c:11:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c:uthash_expand_fyi",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c:10:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'uthash_expand_fyi()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test26.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test26.c:20:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test26.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test26.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:HS_BIT_TEST",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:146:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'HS_BIT_TEST()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' calls bounds-unsafe string API (gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:146:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test32.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test32.c:13:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test32.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test32.c:13:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test59.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test59.c:14:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test59.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test59.c:14:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test65.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test65.c:45:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test65.c' calls bounds-unsafe string API (gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test65.c:45:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c:11:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/emit_keys.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/emit_keys.c:17:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/emit_keys.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/emit_keys.c:17:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test31.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test31.c:20:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test31.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test31.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test14.c:uthash_expand_fyi",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test14.c:9:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'uthash_expand_fyi()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test14.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test14.c:9:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test83.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test83.c:11:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test83.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test83.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test60.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test60.c:14:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test60.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test60.c:14:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:add_user",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:14:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'add_user()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:14:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test11.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test11.c:28:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test11.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test11.c:28:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test34.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test34.c:13:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test34.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test34.c:13:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test30.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test30.c:20:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test30.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test30.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test15.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test15.c:13:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test15.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test15.c:13:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test29.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test29.c:20:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test29.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test29.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test84.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test84.c:11:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test84.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test84.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test56.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test56.c:28:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test56.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test56.c:28:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c:11:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test33.c:main",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test33.c:20:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test33.c' calls bounds-unsafe string API (strcpy, gets); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test33.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h:utarray_sort",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h:200:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'utarray_sort()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h:200:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test66.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test85.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test85.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test85.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test85.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:25:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:25:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test19.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test19.c:32:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test19.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test19.c:32:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test17.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test17.c:19:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test17.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test17.c:19:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test38.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test38.c:10:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test38.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test38.c:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test9.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test9.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test9.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test9.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test10.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test10.c:12:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test10.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test10.c:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test96.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test96.c:24:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test96.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test96.c:24:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test35.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test4.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test4.c:12:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test4.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test4.c:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/sleep_test.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/sleep_test.c:12:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/sleep_test.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/sleep_test.c:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:uthash_malloc",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:10:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'uthash_malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:59:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:59:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test89.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test89.c:46:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test89.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test89.c:46:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:add_user",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:14:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'add_user()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:14:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test24.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test24.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test24.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test24.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test97.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test97.c:21:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test97.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test97.c:21:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test5.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test5.c:12:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test5.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test5.c:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test1.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test1.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test1.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test1.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c:uthash_malloc",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c:10:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'uthash_malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test23.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test23.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test23.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test23.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test6.c:uthash_malloc",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test6.c:12:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'uthash_malloc()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test6.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test6.c:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c:20:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test18.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test18.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test18.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test18.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test79.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test79.c:20:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test79.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test79.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test12.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c:20:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test16.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test2.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test2.c:12:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test2.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test2.c:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test58.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test58.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test58.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test58.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test39.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test39.c:10:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test39.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test39.c:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/main.c:generate_random_string",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/main.c:155:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'generate_random_string()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/main.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/main.c:155:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/threads/test2.c:main",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/threads/test2.c:34:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/threads/test2.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/threads/test2.c:34:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h:utarray_sort",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h:200:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'utarray_sort()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utarray.h:200:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h:utringbuffer_init",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h:21:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'utringbuffer_init()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utringbuffer.h:21:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "double_free_risk",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:HS_BIT_TEST",
+      "target_kind": "double_free_risk_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:146:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Hazard (Double Free Risk): Function 'HS_BIT_TEST()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' calls free() multiple times on the same pointer variable",
+          "weight": 0.85,
+          "rule_code": "DOUBLE_FREE_DUPLICATE_CALL",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:146:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "double_free_risk",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c:main",
+      "target_kind": "double_free_risk_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c:95:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Hazard (Double Free Risk): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c' calls free() multiple times on the same pointer variable",
+          "weight": 0.85,
+          "rule_code": "DOUBLE_FREE_DUPLICATE_CALL",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c:95:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "double_free_risk",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:foo_cache_insert",
+      "target_kind": "double_free_risk_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:111:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Hazard (Double Free Risk): Function 'foo_cache_insert()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c' calls free() multiple times on the same pointer variable",
+          "weight": 0.85,
+          "rule_code": "DOUBLE_FREE_DUPLICATE_CALL",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/lru_cache/cache.c:111:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "god_c_file_srp",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h",
+      "target_kind": "god_c_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' defines 53 functions across 1210 lines of code, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_C_FILE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c:uthash_expand_fyi",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c:10:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'uthash_expand_fyi()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/bloom_perf.c:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:HS_BIT_TEST",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:146:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'HS_BIT_TEST()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c' has cyclomatic complexity of 65; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/hashscan.c:146:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c:main",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c:95:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c' has cyclomatic complexity of 28; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/keystat.c:95:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:main",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:59:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c' has cyclomatic complexity of 30; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:59:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:main",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:85:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/example.c:85:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:IF_NO_DECLTYPE",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:41:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'IF_NO_DECLTYPE()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' has cyclomatic complexity of 14; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:41:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:DL_SORT",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:116:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'DL_SORT()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' has cyclomatic complexity of 13; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:116:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:CDL_SORT",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:179:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'CDL_SORT()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h' has cyclomatic complexity of 18; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:179:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_SORT",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:817:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'HASH_SORT()' in '/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h' has cyclomatic complexity of 17; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:817:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:idcmp",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:18:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:idcmp, /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test37.c:EVENS",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test36.c:18:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test61.c:strsort",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test61.c:4:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test61.c:strsort, /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test46.c:strsort",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test61.c:4:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:uthash_malloc",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:10:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:uthash_malloc, /Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test93.c:uthash_malloc",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/tests/test92.c:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:CDL_APPEND",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:877:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:CDL_APPEND, /Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:CDL_PREPEND",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/utlist.h:877:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_TO_TABLE",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:312:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_TO_TABLE, /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_KEYPTR_INORDER",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:312:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_KEYPTR",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:392:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_ADD_KEYPTR, /Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:HASH_CLEAR",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/uthash/src/uthash.h:392:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

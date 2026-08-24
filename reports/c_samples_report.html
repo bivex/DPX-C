@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ DPX-C: Architecture & Memory Safety Dashboard - c_samples</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.3/semantic.min.css">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #151b2b;
+            --border-color: #232d42;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+        body {
+            background-color: var(--bg-main) !important;
+            color: var(--text-primary) !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 30px 15px;
+        }
+        .ui.container {
+            max-width: 1200px !important;
+        }
+        .header-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            border: 1px solid #2563eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        .kpi-card {
+            background: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+            padding: 16px !important;
+            text-align: center;
+        }
+        .pattern-card {
+            background: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+            margin-bottom: 16px !important;
+            padding: 20px !important;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .pattern-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-color: #3b82f6 !important;
+        }
+        .evidence-box {
+            background: #0b0f19;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-left: 3px solid #3b82f6;
+            font-size: 13px;
+        }
+        .code-pill {
+            background: #1e293b;
+            color: #60a5fa;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <!-- Header -->
+        <div class="header-box">
+            <div class="ui grid stackable middle aligned">
+                <div class="ten wide column">
+                    <h1 class="ui header inverted" style="margin: 0; font-size: 28px;">
+                        ⚡ DPX-C: C Architecture & Memory Safety Dashboard
+                        <div class="sub header" style="color: #bfdbfe; margin-top: 6px;">
+                            Static Analysis, OOP in C, Reactor Loops & Vulnerability Audit for <strong>c_samples</strong>
+                        </div>
+                    </h1>
+                </div>
+                <div class="six wide column right aligned">
+                    <button id="copyLlmBtn" class="ui blue button" onclick="copyArchMapForLlm()">
+                        <i class="copy icon"></i> Copy Architecture Map for LLM
+                    </button>
+                    <textarea id="llmArchMapRaw" style="display:none;"># ⚡ DPX-C: Codebase Architecture Map &amp; Memory Safety Analysis
+
+## 📌 Project Overview
+- **Target Project:** `c_samples`
+- **Files Scanned:** `6`
+- **Total Architecture Findings:** `8`
+- **⚠️ Hazards &amp; Smells:** `4`
+- **🔷 C Patterns &amp; Idioms:** `4`
+- **✅ Clean Adherences:** `0`
+
+---
+
+## 🎯 Task for AI / LLM C Systems Architect
+&gt; **Prompt Instructions:**
+&gt; 1. **Analyze OOP in C &amp; VTables:** Review struct method tables, opaque pointer ADT encapsulation, and intrusive containers.
+&gt; 2. **Review Memory Lifecycle:** Audit unchecked `malloc`, potential memory leaks, and double free risks.
+&gt; 3. **Propose Idiomatic C Refactorings:** Suggest `goto cleanup` error handling, table-driven dispatch, or slab allocators.
+&gt; 4. **Safety Improvements:** Replace buffer-unsafe string functions (`sprintf`, `strcpy`) with `snprintf`/`strlcpy`.
+
+---
+
+## 🔷 Active C Patterns &amp; Architecture Idioms (4 instances)
+### Pattern: `COMMAND_DISPATCH_TABLE` (1 instances)
+- **/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:dispatch_table** (command_dispatch_table, confidence 85%) in `/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:1`
+  - *Summary:* Array &#x27;dispatch_table&#x27; implements Command Dispatch Table mapping identifiers to function pointer handlers
+### Pattern: `REACTOR_EVENT_LOOP` (1 instances)
+- **/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:run_reactor_loop** (reactor_event_function, confidence 85%) in `/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:16`
+  - *Summary:* Function &#x27;run_reactor_loop()&#x27; implements Reactor I/O Demultiplexer Event Loop dispatching non-blocking system events
+### Pattern: `STRATEGY_FUNCTION_POINTER` (1 instances)
+- **/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:device_transfer** (strategy_delegator_function, confidence 75%) in `/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:20`
+  - *Summary:* Function &#x27;device_transfer()&#x27; accepts strategy function pointer parameter &#x27;filter_strategy&#x27; for dynamic algorithm injection
+### Pattern: `VTABLE_INTERFACE` (1 instances)
+- **device_operations** (vtable_struct, confidence 85%) in `/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:7`
+  - *Summary:* Struct &#x27;device_operations&#x27; defines polymorphic VTable Interface containing 4 function pointer method(s) (open, read, write)
+
+---
+
+## ⚠️ Memory Hazards &amp; Code Smells (4 instances)
+### Violation: `DOUBLE_FREE_RISK` (1 occurrences)
+- **/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:double_free_and_leak** (85%) in `/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:15`
+  - *Risk / Smell:* Memory Safety Hazard (Double Free Risk): Function &#x27;double_free_and_leak()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls free() multiple times on the same pointer variable
+  - *Evidence:* `+85%` [DOUBLE_FREE_DUPLICATE_CALL] Memory Safety Hazard (Double Free Risk): Function &#x27;double_free_and_leak()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls free() multiple times on the same pointer variable
+### Violation: `MEMORY_LEAK_MISSING_FREE` (1 occurrences)
+- **/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations** (75%) in `/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5`
+  - *Risk / Smell:* Memory Safety Risk (Potential Leak): Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; allocates local resources without deallocating them or returning them to caller
+  - *Evidence:* `+75%` [LOCAL_ALLOCATION_WITHOUT_FREE] Memory Safety Risk (Potential Leak): Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; allocates local resources without deallocating them or returning them to caller
+### Violation: `UNCHECKED_MALLOC_RETURN` (1 occurrences)
+- **/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations** (85%) in `/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5`
+  - *Risk / Smell:* Memory Safety Risk: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash
+  - *Evidence:* `+85%` [UNCHECKED_MALLOC_RETURN] Memory Safety Risk: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash
+### Violation: `UNSAFE_STRING_FUNCTION` (1 occurrences)
+- **/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations** (85%) in `/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5`
+  - *Risk / Smell:* Security / Buffer Overflow Vulnerability: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy
+  - *Evidence:* `+85%` [UNSAFE_STRING_BUFFER_OVERFLOW] Security / Buffer Overflow Vulnerability: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy
+
+---
+
+## 🗺️ Module &amp; File Hotspots Distribution
+- **`vulnerable_patterns.c`**: 4 findings (4 hazards, 0 patterns, 0 adherences)
+- **`device_vtable.c`**: 2 findings (0 hazards, 2 patterns, 0 adherences)
+- **`command_dispatcher.c`**: 1 findings (0 hazards, 1 patterns, 0 adherences)
+- **`event_loop_reactor.c`**: 1 findings (0 hazards, 1 patterns, 0 adherences)
+</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Metrics Grid -->
+        <div class="ui grid stackable four column" style="margin-bottom: 20px;">
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #60a5fa;">8</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Total Findings</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #f87171;">4</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Safety Hazards & Smells</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #4ade80;">4</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">C Design & Memory Patterns</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #38bdf8;">6 files</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Scan Time: 0.002s</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="ui secondary pointing menu inverted" style="border-color: #232d42; margin-bottom: 16px; overflow-x: auto;">
+            <a class="item active cat-filter-btn" data-filter="all">
+                <i class="layer group icon"></i> All Findings
+            </a>
+            
+                    <a class="item cat-filter-btn" data-filter="structural">
+                        <i class="sitemap icon" style="color: #8b5cf6;"></i>
+                        Structural & Polymorphism
+                        <div class="ui mini violet label">1</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="behavioral">
+                        <i class="random icon" style="color: #ec4899;"></i>
+                        Behavioral Patterns
+                        <div class="ui mini pink label">2</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="concurrency_event">
+                        <i class="bolt icon" style="color: #14b8a6;"></i>
+                        Reactor & Event Loops
+                        <div class="ui mini teal label">1</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="memory_safety">
+                        <i class="bug icon" style="color: #ef4444;"></i>
+                        Memory Safety Hazards
+                        <div class="ui mini red label">4</div>
+                    </a>
+                    
+        </div>
+
+        <!-- Action Status Sub-Tabs Bar -->
+        <div class="ui inverted segment" style="background: #151b2b; border: 1px solid #232d42; border-radius: 8px; margin-bottom: 16px; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div class="ui mini inverted basic buttons" id="statusFilterGroup">
+                <button class="ui button active status-filter-btn" data-status="all">
+                    <i class="eye icon"></i> All <span class="ui mini blue label" id="statusCountAll">8</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="violation" style="color: #f87171 !important;">
+                    <i class="exclamation triangle icon"></i> ⚠️ Hazards <span class="ui mini red label" id="statusCountViolation">4</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="adherence" style="color: #4ade80 !important;">
+                    <i class="check circle icon"></i> ✅ Clean Cleanup <span class="ui mini green label" id="statusCountAdherence">0</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="pattern" style="color: #60a5fa !important;">
+                    <i class="cube icon"></i> 🔷 C Patterns <span class="ui mini blue label" id="statusCountPattern">4</span>
+                </button>
+            </div>
+            <div>
+                <button id="principlesToggleBtn" class="ui mini inverted basic button" onclick="togglePrinciplesVisibility()" style="border-color: #2563eb; color: #bfdbfe; font-weight: 600;">
+                    <i class="shield alternate icon" style="color: #60a5fa;"></i> <span id="principlesToggleText">Hide Principles & Smells</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="ui fluid icon inverted input" style="margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="🔎 Instant search by struct, function, vtable, opaque pointer, reactor, mutex..." style="background: #151b2b; border: 1px solid #232d42; color: #f8fafc; padding: 12px 16px;">
+            <i class="search icon"></i>
+        </div>
+
+        <!-- Zero Violations Alert -->
+        <div id="noViolationsAlert" class="ui positive icon message" style="display: none; background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.35); color: #86efac; margin-bottom: 20px; border-radius: 8px;">
+            <i class="check circle outline icon" style="color: #4ade80;"></i>
+            <div class="content">
+                <div class="header" style="color: #4ade80; font-size: 16px; font-weight: 700;">Zero Safety Hazards Found!</div>
+                <p style="color: #cbd5e1; margin-top: 4px;">All evaluated C sources adhere to memory safety guidelines, bounds checking, and clean RAII cleanup.</p>
+            </div>
+        </div>
+
+        <!-- No Matching Results Message -->
+        <div id="noResultsMessage" class="ui inverted segment" style="display: none; background: #151b2b; border: 1px solid #232d42; text-align: center; padding: 30px; border-radius: 8px;">
+            <i class="search icon" style="font-size: 24px; color: #64748b; margin-bottom: 10px;"></i>
+            <div style="color: #94a3b8; font-size: 15px;">No findings match the selected category, action status, or search query.</div>
+        </div>
+
+        <!-- Cards Container -->
+        <div id="cardsContainer">
+            
+                <div class="pattern-card" data-category="structural" data-pattern="vtable_interface" data-status="pattern" data-target="device_operations">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini violet label">#1 VTABLE_INTERFACE</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">device_operations</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(vtable_struct)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Struct &#x27;device_operations&#x27; defines polymorphic VTable Interface containing 4 function pointer method(s) (open, read, write)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:7:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[VTABLE_FUNCTION_POINTER_INTERFACE]</span>
+                        Struct &#x27;device_operations&#x27; defines polymorphic VTable Interface containing 4 function pointer method(s) (open, read, write) <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:7:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="strategy_function_pointer" data-status="pattern" data-target="/volumes/external/code/dpx-c/examples/c_samples/device_vtable.c:device_transfer">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#2 STRATEGY_FUNCTION_POINTER</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:device_transfer</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(strategy_delegator_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;device_transfer()&#x27; accepts strategy function pointer parameter &#x27;filter_strategy&#x27; for dynamic algorithm injection
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:20:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[STRATEGY_FUNCTION_POINTER_PARAM]</span>
+                        Function &#x27;device_transfer()&#x27; accepts strategy function pointer parameter &#x27;filter_strategy&#x27; for dynamic algorithm injection <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:20:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="command_dispatch_table" data-status="pattern" data-target="/volumes/external/code/dpx-c/examples/c_samples/command_dispatcher.c:dispatch_table">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#3 COMMAND_DISPATCH_TABLE</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:dispatch_table</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(command_dispatch_table)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Array &#x27;dispatch_table&#x27; implements Command Dispatch Table mapping identifiers to function pointer handlers
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[COMMAND_DISPATCH_TABLE_ARRAY]</span>
+                        Array &#x27;dispatch_table&#x27; implements Command Dispatch Table mapping identifiers to function pointer handlers <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:1:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="concurrency_event" data-pattern="reactor_event_loop" data-status="pattern" data-target="/volumes/external/code/dpx-c/examples/c_samples/event_loop_reactor.c:run_reactor_loop">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini teal label">#4 REACTOR_EVENT_LOOP</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:run_reactor_loop</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(reactor_event_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(20, 184, 166, 0.15); color: #2dd4bf; border: 1px solid rgba(20, 184, 166, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;run_reactor_loop()&#x27; implements Reactor I/O Demultiplexer Event Loop dispatching non-blocking system events
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:16:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[REACTOR_EVENT_LOOP_DISPATCHER]</span>
+                        Function &#x27;run_reactor_loop()&#x27; implements Reactor I/O Demultiplexer Event Loop dispatching non-blocking system events <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:16:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="memory_safety" data-pattern="unchecked_malloc_return" data-status="violation" data-target="/volumes/external/code/dpx-c/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini red label">#5 UNCHECKED_MALLOC_RETURN</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(unsafe_malloc_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Memory Safety Risk: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[UNCHECKED_MALLOC_RETURN]</span>
+                        Memory Safety Risk: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="memory_safety" data-pattern="unsafe_string_function" data-status="violation" data-target="/volumes/external/code/dpx-c/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini red label">#6 UNSAFE_STRING_FUNCTION</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(vulnerable_string_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Security / Buffer Overflow Vulnerability: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[UNSAFE_STRING_BUFFER_OVERFLOW]</span>
+                        Security / Buffer Overflow Vulnerability: Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="memory_safety" data-pattern="memory_leak_missing_free" data-status="violation" data-target="/volumes/external/code/dpx-c/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini red label">#7 MEMORY_LEAK_MISSING_FREE</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(potential_leak_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Memory Safety Risk (Potential Leak): Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; allocates local resources without deallocating them or returning them to caller
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[LOCAL_ALLOCATION_WITHOUT_FREE]</span>
+                        Memory Safety Risk (Potential Leak): Function &#x27;unsafe_buffer_operations()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; allocates local resources without deallocating them or returning them to caller <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="memory_safety" data-pattern="double_free_risk" data-status="violation" data-target="/volumes/external/code/dpx-c/examples/c_samples/vulnerable_patterns.c:double_free_and_leak">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini red label">#8 DOUBLE_FREE_RISK</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:double_free_and_leak</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(double_free_risk_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Memory Safety Hazard (Double Free Risk): Function &#x27;double_free_and_leak()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls free() multiple times on the same pointer variable
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:15:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #3b82f6; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[DOUBLE_FREE_DUPLICATE_CALL]</span>
+                        Memory Safety Hazard (Double Free Risk): Function &#x27;double_free_and_leak()&#x27; in &#x27;/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c&#x27; calls free() multiple times on the same pointer variable <span class='code-pill'>/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:15:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.pattern-card');
+        const categoryBtns = document.querySelectorAll('.cat-filter-btn');
+        const statusBtns = document.querySelectorAll('.status-filter-btn');
+        const noViolationsAlert = document.getElementById('noViolationsAlert');
+        const noResultsMessage = document.getElementById('noResultsMessage');
+
+        let selectedCategory = 'all';
+        let selectedStatus = 'all';
+        let hidePrinciples = false;
+
+        function togglePrinciplesVisibility() {
+            hidePrinciples = !hidePrinciples;
+            const btn = document.getElementById('principlesToggleBtn');
+            const btnText = document.getElementById('principlesToggleText');
+            if (hidePrinciples) {
+                btn.classList.remove('basic');
+                btn.classList.add('blue');
+                btnText.textContent = 'Show Principles & Smells';
+            } else {
+                btn.classList.remove('blue');
+                btn.classList.add('basic');
+                btnText.textContent = 'Hide Principles & Smells';
+            }
+            updateStatusCounts();
+            filterCards();
+        }
+
+        function updateStatusCounts() {
+            let total = 0, violations = 0, adherences = 0, patterns = 0;
+            cards.forEach(card => {
+                const category = card.dataset.category || '';
+                const status = card.dataset.status || '';
+                if (hidePrinciples && category === 'principle') {
+                    return;
+                }
+                if (selectedCategory === 'all' || category === selectedCategory) {
+                    total++;
+                    if (status === 'violation') violations++;
+                    if (status === 'adherence') adherences++;
+                    if (status === 'pattern') patterns++;
+                }
+            });
+            document.getElementById('statusCountAll').textContent = total;
+            document.getElementById('statusCountViolation').textContent = violations;
+            document.getElementById('statusCountAdherence').textContent = adherences;
+            document.getElementById('statusCountPattern').textContent = patterns;
+        }
+
+        function filterCards() {
+            const query = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const pattern = card.dataset.pattern || '';
+                const category = card.dataset.category || '';
+                const target = card.dataset.target || '';
+                const status = card.dataset.status || '';
+
+                if (hidePrinciples && category === 'principle') {
+                    card.style.display = 'none';
+                    return;
+                }
+
+                const matchesCategory = (selectedCategory === 'all' || category === selectedCategory);
+                const matchesStatus = (selectedStatus === 'all' || status === selectedStatus);
+                const matchesSearch = (!query || text.includes(query) || pattern.includes(query) || category.includes(query) || target.includes(query));
+
+                if (matchesCategory && matchesStatus && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (selectedStatus === 'violation' && visibleCount === 0) {
+                noViolationsAlert.style.display = 'flex';
+                noResultsMessage.style.display = 'none';
+            } else if (visibleCount === 0) {
+                noViolationsAlert.style.display = 'none';
+                noResultsMessage.style.display = 'block';
+            } else {
+                noViolationsAlert.style.display = 'none';
+                noResultsMessage.style.display = 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', filterCards);
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedCategory = btn.dataset.filter;
+                updateStatusCounts();
+                filterCards();
+            });
+        });
+
+        statusBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                statusBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedStatus = btn.dataset.status;
+                filterCards();
+            });
+        });
+
+        function copyArchMapForLlm() {
+            const rawText = document.getElementById('llmArchMapRaw').value;
+            const btn = document.getElementById('copyLlmBtn');
+            const originalHtml = btn.innerHTML;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(rawText).then(() => {
+                    btn.innerHTML = '<i class="check icon"></i> Copied to Clipboard!';
+                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                });
+            }
+        }
+
+        updateStatusCounts();
+    </script>
+</body>
+</html>

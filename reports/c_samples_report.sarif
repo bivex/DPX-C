@@ -1,0 +1,282 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-C",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-C-VTABLE_INTERFACE",
+              "name": "vtable_interface",
+              "shortDescription": {
+                "text": "C Pattern: Vtable Interface"
+              },
+              "fullDescription": {
+                "text": "Struct 'device_operations' defines polymorphic VTable Interface containing 4 function pointer method(s) (open, read, write)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-C-STRATEGY_FUNCTION_POINTER",
+              "name": "strategy_function_pointer",
+              "shortDescription": {
+                "text": "C Pattern: Strategy Function Pointer"
+              },
+              "fullDescription": {
+                "text": "Function 'device_transfer()' accepts strategy function pointer parameter 'filter_strategy' for dynamic algorithm injection"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-C-COMMAND_DISPATCH_TABLE",
+              "name": "command_dispatch_table",
+              "shortDescription": {
+                "text": "C Pattern: Command Dispatch Table"
+              },
+              "fullDescription": {
+                "text": "Array 'dispatch_table' implements Command Dispatch Table mapping identifiers to function pointer handlers"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-C-REACTOR_EVENT_LOOP",
+              "name": "reactor_event_loop",
+              "shortDescription": {
+                "text": "C Pattern: Reactor Event Loop"
+              },
+              "fullDescription": {
+                "text": "Function 'run_reactor_loop()' implements Reactor I/O Demultiplexer Event Loop dispatching non-blocking system events"
+              },
+              "properties": {
+                "category": "concurrency_event"
+              }
+            },
+            {
+              "id": "DPX-C-UNCHECKED_MALLOC_RETURN",
+              "name": "unchecked_malloc_return",
+              "shortDescription": {
+                "text": "C Pattern: Unchecked Malloc Return"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk: Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-UNSAFE_STRING_FUNCTION",
+              "name": "unsafe_string_function",
+              "shortDescription": {
+                "text": "C Pattern: Unsafe String Function"
+              },
+              "fullDescription": {
+                "text": "Security / Buffer Overflow Vulnerability: Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+              "name": "memory_leak_missing_free",
+              "shortDescription": {
+                "text": "C Pattern: Memory Leak Missing Free"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Risk (Potential Leak): Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' allocates local resources without deallocating them or returning them to caller"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            },
+            {
+              "id": "DPX-C-DOUBLE_FREE_RISK",
+              "name": "double_free_risk",
+              "shortDescription": {
+                "text": "C Pattern: Double Free Risk"
+              },
+              "fullDescription": {
+                "text": "Memory Safety Hazard (Double Free Risk): Function 'double_free_and_leak()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls free() multiple times on the same pointer variable"
+              },
+              "properties": {
+                "category": "memory_safety"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-C-VTABLE_INTERFACE",
+          "level": "note",
+          "message": {
+            "text": "Struct 'device_operations' defines polymorphic VTable Interface containing 4 function pointer method(s) (open, read, write)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-STRATEGY_FUNCTION_POINTER",
+          "level": "note",
+          "message": {
+            "text": "Function 'device_transfer()' accepts strategy function pointer parameter 'filter_strategy' for dynamic algorithm injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c"
+                },
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-COMMAND_DISPATCH_TABLE",
+          "level": "note",
+          "message": {
+            "text": "Array 'dispatch_table' implements Command Dispatch Table mapping identifiers to function pointer handlers"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-REACTOR_EVENT_LOOP",
+          "level": "note",
+          "message": {
+            "text": "Function 'run_reactor_loop()' implements Reactor I/O Demultiplexer Event Loop dispatching non-blocking system events"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNCHECKED_MALLOC_RETURN",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk: Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-UNSAFE_STRING_FUNCTION",
+          "level": "error",
+          "message": {
+            "text": "Security / Buffer Overflow Vulnerability: Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-MEMORY_LEAK_MISSING_FREE",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Risk (Potential Leak): Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' allocates local resources without deallocating them or returning them to caller"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-C-DOUBLE_FREE_RISK",
+          "level": "error",
+          "message": {
+            "text": "Memory Safety Hazard (Double Free Risk): Function 'double_free_and_leak()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls free() multiple times on the same pointer variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

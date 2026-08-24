@@ -1,0 +1,188 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-C/examples/c_samples",
+  "scanned_files_count": 6,
+  "total_detections_count": 8,
+  "elapsed_seconds": 0.0016,
+  "summary_by_category": {
+    "structural": 1,
+    "behavioral": 2,
+    "concurrency_event": 1,
+    "memory_safety": 4
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 0,
+    "high": 2,
+    "very_high": 6
+  },
+  "detections": [
+    {
+      "pattern_type": "vtable_interface",
+      "pattern_category": "structural",
+      "target_name": "device_operations",
+      "target_kind": "vtable_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:7:1",
+      "evidences": [
+        {
+          "description": "Struct 'device_operations' defines polymorphic VTable Interface containing 4 function pointer method(s) (open, read, write)",
+          "weight": 0.85,
+          "rule_code": "VTABLE_FUNCTION_POINTER_INTERFACE",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:7:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_function_pointer",
+      "pattern_category": "behavioral",
+      "target_name": "/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:device_transfer",
+      "target_kind": "strategy_delegator_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:20:1",
+      "evidences": [
+        {
+          "description": "Function 'device_transfer()' accepts strategy function pointer parameter 'filter_strategy' for dynamic algorithm injection",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_FUNCTION_POINTER_PARAM",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/device_vtable.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "command_dispatch_table",
+      "pattern_category": "behavioral",
+      "target_name": "/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:dispatch_table",
+      "target_kind": "command_dispatch_table",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:1:1",
+      "evidences": [
+        {
+          "description": "Array 'dispatch_table' implements Command Dispatch Table mapping identifiers to function pointer handlers",
+          "weight": 0.85,
+          "rule_code": "COMMAND_DISPATCH_TABLE_ARRAY",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/command_dispatcher.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "reactor_event_loop",
+      "pattern_category": "concurrency_event",
+      "target_name": "/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:run_reactor_loop",
+      "target_kind": "reactor_event_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:16:1",
+      "evidences": [
+        {
+          "description": "Function 'run_reactor_loop()' implements Reactor I/O Demultiplexer Event Loop dispatching non-blocking system events",
+          "weight": 0.85,
+          "rule_code": "REACTOR_EVENT_LOOP_DISPATCHER",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/event_loop_reactor.c:16:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:unsafe_buffer_operations",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'unsafe_buffer_operations()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:5:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "double_free_risk",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:double_free_and_leak",
+      "target_kind": "double_free_risk_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:15:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Hazard (Double Free Risk): Function 'double_free_and_leak()' in '/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c' calls free() multiple times on the same pointer variable",
+          "weight": 0.85,
+          "rule_code": "DOUBLE_FREE_DUPLICATE_CALL",
+          "location": "/Volumes/External/Code/DPX-C/examples/c_samples/vulnerable_patterns.c:15:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

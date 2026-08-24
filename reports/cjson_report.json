@@ -1,0 +1,1932 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-C/benchmarks/cJSON",
+  "scanned_files_count": 99,
+  "total_detections_count": 91,
+  "elapsed_seconds": 0.2335,
+  "summary_by_category": {
+    "structural": 4,
+    "behavioral": 2,
+    "resilience_cleanup": 10,
+    "memory_safety": 24,
+    "principle": 51
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 0,
+    "high": 63,
+    "very_high": 28
+  },
+  "detections": [
+    {
+      "pattern_type": "facade_header",
+      "pattern_category": "structural",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_head1.h",
+      "target_kind": "facade_header",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_head1.h:1:1",
+      "evidences": [
+        {
+          "description": "Header '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_head1.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface",
+          "weight": 0.75,
+          "rule_code": "FACADE_HEADER_AGGREGATOR",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_head1.h:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "facade_header",
+      "pattern_category": "structural",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_head1.h",
+      "target_kind": "facade_header",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_head1.h:1:1",
+      "evidences": [
+        {
+          "description": "Header '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_head1.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface",
+          "weight": 0.75,
+          "rule_code": "FACADE_HEADER_AGGREGATOR",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_head1.h:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "facade_header",
+      "pattern_category": "structural",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.h",
+      "target_kind": "facade_header",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.h:1:1",
+      "evidences": [
+        {
+          "description": "Header '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.h' serves as a Subsystem Facade aggregating 4 internal module headers into a single public interface",
+          "weight": 0.75,
+          "rule_code": "FACADE_HEADER_AGGREGATOR",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.h:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "composite_tree",
+      "pattern_category": "structural",
+      "target_name": "cJSON",
+      "target_kind": "composite_tree_struct",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.h:67:1",
+      "evidences": [
+        {
+          "description": "Struct 'cJSON' implements Composite Tree Pattern containing recursive child node links (next, prev, child)",
+          "weight": 0.85,
+          "rule_code": "COMPOSITE_RECURSIVE_TREE_STRUCT",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.h:67:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_function_pointer",
+      "pattern_category": "behavioral",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity_internals.h:UNITY_INT_WIDTH",
+      "target_kind": "strategy_delegator_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity_internals.h:31:1",
+      "evidences": [
+        {
+          "description": "Function 'UNITY_INT_WIDTH()' accepts strategy function pointer parameter 'UnityTestFunction' for dynamic algorithm injection",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_FUNCTION_POINTER_PARAM",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity_internals.h:31:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_function_pointer",
+      "pattern_category": "behavioral",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c:UnityMain",
+      "target_kind": "strategy_delegator_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c:25:1",
+      "evidences": [
+        {
+          "description": "Function 'UnityMain()' accepts strategy function pointer parameter 'runAllTests' for dynamic algorithm injection",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_FUNCTION_POINTER_PARAM",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c:25:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:utf16_literal_to_utf8",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:679:1",
+      "evidences": [
+        {
+          "description": "Function 'utf16_literal_to_utf8()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:679:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:parse_string",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:798:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_string()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:798:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:cJSON_ParseWithLengthOpts",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1117:1",
+      "evidences": [
+        {
+          "description": "Function 'cJSON_ParseWithLengthOpts()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1117:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:cjson_min",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1211:1",
+      "evidences": [
+        {
+          "description": "Function 'cjson_min()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1211:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:print_value",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1338:1",
+      "evidences": [
+        {
+          "description": "Function 'print_value()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1338:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:cJSON_Duplicate_rec",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:2758:1",
+      "evidences": [
+        {
+          "description": "Function 'cJSON_Duplicate_rec()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:2758:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:apply_patch",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:785:1",
+      "evidences": [
+        {
+          "description": "Function 'apply_patch()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:785:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c:LLVMFuzzerTestOneInput",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c:5:1",
+      "evidences": [
+        {
+          "description": "Function 'LLVMFuzzerTestOneInput()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c:5:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c:main",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c:65:1",
+      "evidences": [
+        {
+          "description": "Function 'main()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c:65:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "goto_cleanup_idiom",
+      "pattern_category": "resilience_cleanup",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/common.h:read_file",
+      "target_kind": "goto_cleanup_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/common.h:26:1",
+      "evidences": [
+        {
+          "description": "Function 'read_file()' adopts idiomatic Kernel single-exit Goto Error Cleanup (RAII in C) ensuring unified resource deallocation",
+          "weight": 0.8,
+          "rule_code": "GOTO_CLEANUP_RESOURCE_RELEASE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/common.h:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:internal_realloc",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:153:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'internal_realloc()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:153:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c:LLVMFuzzerTestOneInput",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c:5:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'LLVMFuzzerTestOneInput()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/fuzz_main.c:5:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/cjson_read_fuzzer.c:LLVMFuzzerTestOneInput",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/cjson_read_fuzzer.c:11:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'LLVMFuzzerTestOneInput()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/cjson_read_fuzzer.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/cjson_read_fuzzer.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:ensure_should_fail_on_failed_realloc",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:497:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'ensure_should_fail_on_failed_realloc()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:497:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:cjson_minify_should_not_modify_strings",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:26:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'cjson_minify_should_not_modify_strings()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:cjson_minify_should_minify_json",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:40:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'cjson_minify_should_minify_json()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:40:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_fixture_Test.c:USING_SPY_AS",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_fixture_Test.c:344:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'USING_SPY_AS()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_fixture_Test.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_fixture_Test.c:344:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unchecked_malloc_return",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c:UnityOutputCharSpy_Create",
+      "target_kind": "unsafe_malloc_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c:15:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk: Function 'UnityOutputCharSpy_Create()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",
+          "weight": 0.85,
+          "rule_code": "UNCHECKED_MALLOC_RETURN",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c:15:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:CJSON_PUBLIC",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:102:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'CJSON_PUBLIC()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:102:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:print_number",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:574:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'print_number()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:574:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:print_string_ptr",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:928:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'print_string_ptr()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (strcpy, sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:928:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:print_value",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1338:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'print_value()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1338:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:compose_patch",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1074:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'compose_patch()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1074:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:create_patches",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1119:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'create_patches()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1119:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_examples.c:do_test",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_examples.c:26:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'do_test()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_examples.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_examples.c:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_hex4.c:parse_hex4_should_parse_all_combinations",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_hex4.c:11:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'parse_hex4_should_parse_all_combinations()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_hex4.c' calls bounds-unsafe string API (sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/parse_hex4.c:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:cjson_minify_should_not_modify_strings",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:26:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'cjson_minify_should_not_modify_strings()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:cjson_minify_should_minify_json",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:40:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'cjson_minify_should_minify_json()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c' calls bounds-unsafe string API (strcpy); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/minify_tests.c:40:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unsafe_string_function",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:defined",
+      "target_kind": "vulnerable_string_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:4514:1",
+      "evidences": [
+        {
+          "description": "Security / Buffer Overflow Vulnerability: Function 'defined()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c' calls bounds-unsafe string API (strcpy, sprintf); replace with snprintf/strncpy/strlcpy",
+          "weight": 0.85,
+          "rule_code": "UNSAFE_STRING_BUFFER_OVERFLOW",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:4514:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:push",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:9:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'push()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:9:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:ensure_should_fail_on_failed_realloc",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:497:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'ensure_should_fail_on_failed_realloc()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:497:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "memory_leak_missing_free",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c:UnityOutputCharSpy_Create",
+      "target_kind": "potential_leak_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c:15:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Risk (Potential Leak): Function 'UnityOutputCharSpy_Create()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c' allocates local resources without deallocating them or returning them to caller",
+          "weight": 0.75,
+          "rule_code": "LOCAL_ALLOCATION_WITHOUT_FREE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/test/unity_output_Spy.c:15:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "double_free_risk",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/test.c:print_preallocated",
+      "target_kind": "double_free_risk_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/test.c:23:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Hazard (Double Free Risk): Function 'print_preallocated()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/test.c' calls free() multiple times on the same pointer variable",
+          "weight": 0.85,
+          "rule_code": "DOUBLE_FREE_DUPLICATE_CALL",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/test.c:23:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "double_free_risk",
+      "pattern_category": "memory_safety",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/old_utils_tests.c:misc_tests",
+      "target_kind": "double_free_risk_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/old_utils_tests.c:68:1",
+      "evidences": [
+        {
+          "description": "Memory Safety Hazard (Double Free Risk): Function 'misc_tests()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/old_utils_tests.c' calls free() multiple times on the same pointer variable",
+          "weight": 0.85,
+          "rule_code": "DOUBLE_FREE_DUPLICATE_CALL",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/old_utils_tests.c:68:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "god_c_file_srp",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c",
+      "target_kind": "god_c_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' defines 36 functions across 3207 lines of code, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_C_FILE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "god_c_file_srp",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c",
+      "target_kind": "god_c_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' defines 21 functions across 1482 lines of code, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_C_FILE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "god_c_file_srp",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/cjson_add.c",
+      "target_kind": "god_c_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/cjson_add.c:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/cjson_add.c' defines 34 functions across 472 lines of code, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_C_FILE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/cjson_add.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "god_c_file_srp",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c",
+      "target_kind": "god_c_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c' defines 32 functions across 839 lines of code, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_C_FILE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/misc_tests.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "god_c_file_srp",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c",
+      "target_kind": "god_c_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c' defines 467 functions across 5338 lines of code, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_C_FILE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "god_c_file_srp",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c",
+      "target_kind": "god_c_file",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God C File): File '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' defines 44 functions across 1571 lines of code, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_C_FILE",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:can_read",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:279:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'can_read()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 26; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:279:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:utf16_literal_to_utf8",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:679:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'utf16_literal_to_utf8()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 16; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:679:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:parse_string",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:798:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'parse_string()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 22; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:798:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:print_string_ptr",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:928:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'print_string_ptr()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 24; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:928:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:cJSON_ParseWithLengthOpts",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1117:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'cJSON_ParseWithLengthOpts()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1117:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:print_value",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1338:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'print_value()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 56; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1338:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:print_object",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1754:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'print_object()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 19; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:1754:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:cJSON_Duplicate_rec",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:2758:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'cJSON_Duplicate_rec()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:2758:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:compare_json",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:582:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'compare_json()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:582:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:apply_patch",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:785:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'apply_patch()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' has cyclomatic complexity of 36; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:785:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:create_patches",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1119:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'create_patches()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c' has cyclomatic complexity of 21; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:1119:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c:main",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c:65:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'main()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/fuzzing/afl.c:65:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:UnityPrintFloat",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:253:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'UnityPrintFloat()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 18; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:253:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:UnityAssertGreaterOrLessOrEqualNumber",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:540:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'UnityAssertGreaterOrLessOrEqualNumber()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:540:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:UnityAssertFloatSpecial",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:758:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'UnityAssertFloatSpecial()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:758:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:UnityAssertDoubleSpecial",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:888:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'UnityAssertDoubleSpecial()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 12; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:888:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:UnityAssertEqualStringArray",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:1068:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'UnityAssertEqualStringArray()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 13; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:1068:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:UnityParseOptions",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:1384:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'UnityParseOptions()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/src/unity.c:1384:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c:UnityGetCommandLineOptions",
+      "target_kind": "complex_c_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c:340:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'UnityGetCommandLineOptions()' in '/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c' has cyclomatic complexity of 15; refactor nested branches or use table dispatch",
+          "weight": 0.75,
+          "rule_code": "KISS_HIGH_CYCLOMATIC_COMPLEXITY",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/extras/fixture/src/unity_fixture.c:340:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:compare_double",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:567:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:compare_double, /Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON_Utils.c:compare_double",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/cJSON.c:567:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:qwiktest_ThisTestPassesWhenNoSetupRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:59:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:qwiktest_ThisTestPassesWhenNoSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:qwiktest_ThisTestPassesWhenNoSetupRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:59:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:qwiktest_ThisTestPassesWhenNoTeardownRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:64:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:qwiktest_ThisTestPassesWhenNoTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:qwiktest_ThisTestPassesWhenNoTeardownRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:64:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalSuiteSetupAndTeardownRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:69:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalSuiteSetupAndTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:spec_ThisTestPassesWhenNormalSuiteSetupAndTeardownRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:69:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalSetupRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:74:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorSmall.c:spec_ThisTestPassesWhenNormalSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:spec_ThisTestPassesWhenNormalSetupRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:74:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalTeardownRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:79:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:spec_ThisTestPassesWhenNormalTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorSmall.c:spec_ThisTestPassesWhenNormalTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:spec_ThisTestPassesWhenNormalTeardownRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:79:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:custtest_ThisTestPassesWhenCustomSetupRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:84:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:custtest_ThisTestPassesWhenCustomSetupRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:custtest_ThisTestPassesWhenCustomSetupRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:84:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:custtest_ThisTestPassesWhenCustomTeardownRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:89:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:custtest_ThisTestPassesWhenCustomTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:custtest_ThisTestPassesWhenCustomTeardownRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:89:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:test_NotBeConfusedByLongComplicatedStrings",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:99:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:test_NotBeConfusedByLongComplicatedStrings, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:test_NotBeConfusedByLongComplicatedStrings",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:99:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:paratest_ShouldHandleParameterizedTests",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:114:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:paratest_ShouldHandleParameterizedTests, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:paratest_ShouldHandleParameterizedTests",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:114:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:extest_ShouldHandleCExceptionInTest",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:136:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:extest_ShouldHandleCExceptionInTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:extest_ShouldHandleCExceptionInTest",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:136:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:suitetest_ThisTestPassesWhenCustomSuiteSetupAndTeardownRan",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:150:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:suitetest_ThisTestPassesWhenCustomSuiteSetupAndTeardownRan, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGeneratorWithMocks.c:suitetest_ThisTestPassesWhenCustomSuiteSetupAndTeardownRan",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/testdata/testRunnerGenerator.c:150:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testparameterized.c:setUp",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testparameterized.c:43:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testparameterized.c:setUp, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:startPutcharSpy",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testparameterized.c:43:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualUINT8Arrays1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:2549:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualUINT8Arrays1, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualUINT8Arrays2, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualUINT8Arrays3",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:2549:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEXArrays1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:2682:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEXArrays1, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEX32Arrays1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:2682:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEXArrays2",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:2692:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEXArrays2, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:testNotEqualHEX32Arrays2",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/tests/testunity.c:2692:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_run1.c:RUN_TEST",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_run1.c:4:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 8 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_run1.c:RUN_TEST, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c:RUN_TEST, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:RUN_TEST",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_run1.c:4:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c:resetTest",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c:60:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 9 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c:resetTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_def.c:resetTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:resetTest",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_cmd.c:60:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:setUp",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:45:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:setUp, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_new1.c:setUp",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/test/expectdata/testsample_mock_run1.c:45:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnZeroIfItemIsNotInList_WhichWorksEvenInOurBrokenCode",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:18:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnZeroIfItemIsNotInList_WhichWorksEvenInOurBrokenCode, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnZeroIfItemIsNotInList_WhichWorksEvenInOurBrokenCode",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:18:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnTheIndexForItemsInList_WhichWillFailBecauseOurFunctionUnderTestIsBroken",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:28:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnTheIndexForItemsInList_WhichWillFailBecauseOurFunctionUnderTestIsBroken, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FindFunction_WhichIsBroken_ShouldReturnTheIndexForItemsInList_WhichWillFailBecauseOurFunctionUnderTestIsBroken",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:28:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValue",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:37:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValue, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValue",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:37:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValueAgain",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:47:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValueAgain, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnTheCurrentCounterValueAgain",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:47:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnCurrentCounter_ButFailsBecauseThisTestIsActuallyFlawed",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:53:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnCurrentCounter_ButFailsBecauseThisTestIsActuallyFlawed, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode.c:test_FunctionWhichReturnsLocalVariable_ShouldReturnCurrentCounter_ButFailsBecauseThisTestIsActuallyFlawed",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode.c:53:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode2.c:test_AnotherIgnoredTest",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode2.c:20:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 2 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode2.c:test_AnotherIgnoredTest, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/test/TestProductionCode2.c:test_AnotherIgnoredTest",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/test/TestProductionCode2.c:20:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/src/ProductionCode.c:FindFunction_WhichIsBroken",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/src/ProductionCode.c:8:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical C function logic duplicated across 3 location(s): /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/src/ProductionCode.c:FindFunction_WhichIsBroken, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_2/src/ProductionCode.c:FindFunction_WhichIsBroken, /Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_3/src/ProductionCode.c:FindFunction_WhichIsBroken",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-C/benchmarks/cJSON/tests/unity/examples/example_1/src/ProductionCode.c:8:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}
