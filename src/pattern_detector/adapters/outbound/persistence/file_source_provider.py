@@ -11,10 +11,34 @@ from pattern_detector.ports.outbound import SourceProviderPort
 class FileSourceProvider(SourceProviderPort):
     """Recursively retrieves C source code files (.c, .h) from disk."""
 
-    def get_sources(self, target_path: str, extensions: list[str] | None = None) -> dict[str, str]:
+    DEFAULT_EXCLUDES = {
+        ".git",
+        "build",
+        "out",
+        "target",
+        "vendor",
+        ".venv",
+        "venv",
+        "__pycache__",
+        ".hg",
+        ".svn",
+        ".idea",
+        ".vscode",
+        "node_modules",
+    }
+
+    def get_sources(
+        self,
+        target_path: str,
+        extensions: list[str] | None = None,
+        exclude_dirs: list[str] | None = None,
+    ) -> dict[str, str]:
         exts = extensions or [".c", ".h"]
         target = Path(target_path).resolve()
         sources: dict[str, str] = {}
+
+        user_excludes = set(exclude_dirs or [])
+        clean_user_excludes = {ex.strip("/\\") for ex in user_excludes if ex.strip("/\\")}
 
         if target.is_file():
             if any(str(target).endswith(ext) for ext in exts):
@@ -22,9 +46,22 @@ class FileSourceProvider(SourceProviderPort):
             return sources
 
         if target.is_dir():
-            for root, _, files in os.walk(target):
-                if "/.git/" in root or "/build/" in root or "/out/" in root or "/vendor/" in root:
-                    continue
+            for root, dirs, files in os.walk(target):
+                dirs[:] = [
+                    d
+                    for d in dirs
+                    if d not in self.DEFAULT_EXCLUDES
+                    and d not in clean_user_excludes
+                    and not any(ex == d or ex in f"{root}/{d}".split(os.sep) for ex in clean_user_excludes)
+                ]
+
+                try:
+                    rel_parts = set(Path(root).resolve().relative_to(target).parts)
+                    if any(ex in rel_parts for ex in clean_user_excludes):
+                        continue
+                except ValueError:
+                    pass
+
                 for file in files:
                     if any(file.endswith(ext) for ext in exts):
                         full_path = Path(root) / file
