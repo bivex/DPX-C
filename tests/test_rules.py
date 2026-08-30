@@ -77,3 +77,99 @@ def test_detect_safety_hazards():
 
     goto_clean = GotoCleanupIdiomRule().detect(model)
     assert len(goto_clean) == 1
+
+
+def test_composite_tree_distinguishes_lists_and_trees():
+    from pattern_detector.domain.rules.composite_tree_rule import CompositeTreeRule
+
+    sources = {
+        "include/ast.h": """
+        struct ast_node {
+            int token_type;
+            struct ast_node* left;
+            struct ast_node* right;
+            struct ast_node* parent;
+        };
+        struct json_val {
+            int type;
+            struct json_val* child;
+            struct json_val* next;
+            struct json_val* prev;
+        };
+        """,
+        "include/list.h": """
+        struct list_node {
+            int val;
+            struct list_node* prev;
+            struct list_node* next;
+        };
+        """,
+    }
+    parser = NativeCParserAdapter()
+    model = parser.parse_sources(sources)
+
+    detections = CompositeTreeRule().detect(model)
+    detected_names = {d.target_name for d in detections}
+
+    assert "ast_node" in detected_names
+    assert "json_val" in detected_names
+    assert "list_node" not in detected_names
+
+
+def test_double_free_ignores_error_branch_returns():
+    from pattern_detector.domain.rules.double_free_risk_rule import DoubleFreeRiskRule
+
+    sources = {
+        "src/cleanup.c": """
+        int safe_branches(int fd, size_t len) {
+            char* data = (char*)malloc(len);
+            if (fd < 0) {
+                free(data);
+                return -1;
+            }
+            if (len > 1000) {
+                free(data);
+                return -2;
+            }
+            free(data);
+            return 0;
+        }
+
+        void actual_double_free(char* p) {
+            free(p);
+            free(p);
+        }
+        """
+    }
+    parser = NativeCParserAdapter()
+    model = parser.parse_sources(sources)
+
+    detections = DoubleFreeRiskRule().detect(model)
+    assert len(detections) == 1
+    assert detections[0].target_name == "src/cleanup.c:actual_double_free"
+
+
+def test_facade_header_ignores_standard_c_includes():
+    from pattern_detector.domain.rules.facade_header_rule import FacadeHeaderRule
+
+    sources = {
+        "include/std_only.h": """
+        #include <stdio.h>
+        #include <stdlib.h>
+        #include <string.h>
+        #include <stdint.h>
+        #include <unistd.h>
+        """,
+        "include/facade.h": """
+        #include "subsystem/parser.h"
+        #include "subsystem/lexer.h"
+        #include "subsystem/ast.h"
+        #include "subsystem/codegen.h"
+        """,
+    }
+    parser = NativeCParserAdapter()
+    model = parser.parse_sources(sources)
+
+    detections = FacadeHeaderRule().detect(model)
+    assert len(detections) == 1
+    assert detections[0].target_name == "include/facade.h"

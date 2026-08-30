@@ -19,10 +19,27 @@ class UncheckedMallocReturnRule(BasePatternRule):
     def detect(self, model: CodeModel) -> list[Detection]:
         detections: list[Detection] = []
 
+        null_check_indicators = (
+            "if (!", "if (", "if(", "assert(", "ASSERT(", "CHECK(", "abort(", "exit(",
+            "? :", "goto "
+        )
+
         for f in model.all_files():
             for fn in f.functions.values():
                 body = fn.body
-                if ("malloc(" in body or "calloc(" in body or "realloc(" in body) and not ("if (!" in body or "if (" in body or "assert(" in body):
+                has_alloc = "malloc(" in body or "calloc(" in body or "realloc(" in body
+                if not has_alloc:
+                    continue
+
+                # Pass-through allocators / factory wrappers that return malloc result directly
+                is_direct_return = bool(
+                    re.search(r"return\s+(?:\([^)]*\)\s*)?(?:malloc|calloc|realloc)\s*\(", body)
+                )
+                if is_direct_return:
+                    continue
+
+                has_null_check = any(k in body for k in null_check_indicators)
+                if not has_null_check:
                     evidences = [
                         Evidence(
                             description=f"Memory Safety Risk: Function '{fn.id_str}' in '{f.file_path}' calls malloc/calloc without validating pointer against NULL, risking null-pointer dereference crash",

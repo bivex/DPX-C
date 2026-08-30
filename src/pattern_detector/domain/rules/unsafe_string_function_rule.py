@@ -23,9 +23,9 @@ class UnsafeStringFunctionRule(BasePatternRule):
             for fn in f.functions.values():
                 body = fn.body
                 unsafe_found = []
-                for bad_fn in ("strcpy(", "strcat(", "sprintf(", "gets("):
-                    if bad_fn in body:
-                        unsafe_found.append(bad_fn.rstrip("("))
+                for bad_fn in ("strcpy", "strcat", "sprintf", "gets"):
+                    if re.search(r"\b" + bad_fn + r"\s*\(", body):
+                        unsafe_found.append(bad_fn)
 
                 if unsafe_found:
                     evidences = [

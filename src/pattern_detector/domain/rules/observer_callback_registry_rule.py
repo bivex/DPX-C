@@ -21,11 +21,14 @@ class ObserverCallbackRegistryRule(BasePatternRule):
 
         for f in model.all_files():
             for fn in f.functions.values():
-                is_sub = any(fn.name.startswith(p) for p in ("register_", "add_listener", "subscribe_", "on_", "set_callback"))
+                is_sub = any(
+                    fn.name.startswith(p)
+                    for p in ("register_", "add_listener", "subscribe_", "set_callback", "set_handler", "add_callback", "add_handler", "set_on_")
+                ) or "callback" in fn.name or "listener" in fn.name
                 has_fp = any(p.is_function_pointer for p in fn.params)
-                has_userdata = any("user_data" in p.name or "userdata" in p.name or "ctx" in p.name or "arg" in p.name for p in fn.params)
+                has_userdata = any("user_data" in p.name or "userdata" in p.name or "ctx" in p.name or "cb" in p.name for p in fn.params)
 
-                if is_sub and (has_fp or has_userdata):
+                if is_sub and has_fp:
                     evidences = [
                         Evidence(
                             description=f"Function '{fn.id_str}' implements Observer Callback Registration allowing event listeners to attach opaque callbacks with context pointers",

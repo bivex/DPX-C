@@ -22,6 +22,11 @@ class CircularHeaderIncludeRule(BasePatternRule):
         for cycle in cycles:
             cycle_str = " ➔ ".join(cycle) + " ➔ " + cycle[0]
             first_file = model.find_file(cycle[0])
+            if not first_file:
+                for f_path, f_model in model.files.items():
+                    if f_path.endswith("/" + cycle[0]) or f_path == cycle[0] or os.path.basename(f_path) == cycle[0]:
+                        first_file = f_model
+                        break
             loc = first_file.location if first_file else None
 
             evidences = [

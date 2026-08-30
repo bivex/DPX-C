@@ -18,10 +18,32 @@ class MemoryLeakMissingFreeRule(BasePatternRule):
     def detect(self, model: CodeModel) -> list[Detection]:
         detections: list[Detection] = []
 
+        dealloc_indicators = (
+            "free(", "fclose(", "zfree(", "uv__free(", "uv_free(", "cJSON_free(",
+            "luaM_free(", "sdsfree(", "je_free(", "free_", "_free(", "_destroy(",
+            "_release(", "_close(", "_deinit(", "_cleanup(", "cleanup:"
+        )
+
+        container_save_keywords = (
+            "_add(", "_insert(", "_push(", "_set(", "_register(", "_append(", "_put("
+        )
+
         for f in model.all_files():
             for fn in f.functions.values():
+                if fn.name == "main":
+                    continue
+
                 body = fn.body
-                if ("malloc(" in body or "fopen(" in body) and not ("free(" in body or "fclose(" in body or "return " in fn.return_type or "*" in fn.return_type):
+                has_alloc = "malloc(" in body or "calloc(" in body or "fopen(" in body
+                if not has_alloc:
+                    continue
+
+                has_dealloc = any(d in body for d in dealloc_indicators)
+                returns_ptr = "*" in fn.return_type or "struct " in fn.return_type
+                has_out_param = any(p.type_str.count("*") >= 2 or "*" in p.name for p in fn.params)
+                stores_to_struct = "->" in body or any(k in body for k in container_save_keywords)
+
+                if not (has_dealloc or returns_ptr or has_out_param or stores_to_struct):
                     evidences = [
                         Evidence(
                             description=f"Memory Safety Risk (Potential Leak): Function '{fn.id_str}' in '{f.file_path}' allocates local resources without deallocating them or returning them to caller",

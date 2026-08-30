@@ -22,11 +22,11 @@ class DoubleFreeRiskRule(BasePatternRule):
         for f in model.all_files():
             for fn in f.functions.values():
                 body = fn.body
-                free_vars = re.findall(r"\bfree\s*\(\s*([a-zA-Z0-9_]+)\s*\)", body)
-                if len(free_vars) != len(set(free_vars)):
+                vulnerable_var = self._find_double_free_var(body)
+                if vulnerable_var:
                     evidences = [
                         Evidence(
-                            description=f"Memory Safety Hazard (Double Free Risk): Function '{fn.id_str}' in '{f.file_path}' calls free() multiple times on the same pointer variable",
+                            description=f"Memory Safety Hazard (Double Free Risk): Function '{fn.id_str}' in '{f.file_path}' calls free() multiple times on '{vulnerable_var}' on sequential execution path without reallocation or NULL check",
                             weight=0.85,
                             rule_code="DOUBLE_FREE_DUPLICATE_CALL",
                             location=fn.location or f.location,
@@ -41,3 +41,38 @@ class DoubleFreeRiskRule(BasePatternRule):
                     detections.append(det)
 
         return detections
+
+    def _find_double_free_var(self, body: str) -> str | None:
+        matches = list(re.finditer(r"\b(?:free|zfree|cJSON_free|uv__free)\s*\(\s*([a-zA-Z0-9_]+)\s*\)", body))
+        if len(matches) < 2:
+            return None
+
+        var_positions: dict[str, list[int]] = {}
+        for m in matches:
+            var_positions.setdefault(m.group(1), []).append(m.start())
+
+        for var, positions in var_positions.items():
+            if len(positions) < 2:
+                continue
+
+            for i in range(len(positions) - 1):
+                pos1 = positions[i]
+                pos2 = positions[i + 1]
+                segment = body[pos1:pos2]
+
+                has_exit_or_branch = (
+                    "return " in segment
+                    or "return;" in segment
+                    or "goto " in segment
+                    or "else " in segment
+                    or "else{" in segment
+                    or "break;" in segment
+                    or "exit(" in segment
+                    or "abort(" in segment
+                    or re.search(r"\b" + re.escape(var) + r"\s*=", segment) is not None
+                )
+
+                if not has_exit_or_branch:
+                    return var
+
+        return None

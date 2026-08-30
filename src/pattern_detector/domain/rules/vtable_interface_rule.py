@@ -17,11 +17,17 @@ class VTableInterfaceRule(BasePatternRule):
 
     def detect(self, model: CodeModel) -> list[Detection]:
         detections: list[Detection] = []
+        seen_locations: set[tuple[str, int]] = set()
 
         for f in model.all_files():
             for s_name, st in f.structs.items():
+                loc_key = (f.file_path, st.location.line if st.location else 0)
+                if loc_key in seen_locations:
+                    continue
+
                 func_ptrs = st.function_pointer_members
                 if len(func_ptrs) >= 2 or (func_ptrs and ("ops" in s_name or "vtable" in s_name or "interface" in s_name or "driver" in s_name)):
+                    seen_locations.add(loc_key)
                     evidences = [
                         Evidence(
                             description=f"Struct '{s_name}' defines polymorphic VTable Interface containing {len(func_ptrs)} function pointer method(s) ({', '.join(m.name for m in func_ptrs[:3])})",
