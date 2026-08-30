@@ -25,9 +25,17 @@ class NativeCParserAdapter(ParserPort):
 
     def parse_sources(self, sources: dict[str, str]) -> CodeModel:
         model = CodeModel()
-        for file_path, source_text in sources.items():
-            file_model = self.parse_file(file_path, source_text)
-            model.files[file_path] = file_model
+        from concurrent.futures import ThreadPoolExecutor
+
+        def _worker(item: tuple[str, str]) -> tuple[str, FileModel]:
+            f_path, src_text = item
+            return f_path, self.parse_file(f_path, src_text)
+
+        with ThreadPoolExecutor() as executor:
+            results = executor.map(_worker, sources.items())
+            for f_path, file_model in results:
+                model.files[f_path] = file_model
+
         return model
 
     def parse_file(self, file_path: str, source_text: str) -> FileModel:
@@ -79,13 +87,19 @@ class NativeCParserAdapter(ParserPort):
     def _parse_macros(self, text: str, file_path: str) -> dict[str, MacroModel]:
         macros: dict[str, MacroModel] = {}
         pattern = re.compile(r"#\s*define\s+([a-zA-Z0-9_]+)(?:\(([^)]*)\))?\s*(.*)", re.MULTILINE)
+        cur_pos = 0
+        cur_line = 1
+
         for m in pattern.finditer(text):
             name = m.group(1)
             params_raw = m.group(2)
             defn = m.group(3).strip()
             params = [p.strip() for p in params_raw.split(",")] if params_raw else []
-            line_no = text[:m.start()].count("\n") + 1
-            loc = SourceLocation(file_path=file_path, line=line_no)
+
+            cur_line += text.count("\n", cur_pos, m.start())
+            cur_pos = m.start()
+            loc = SourceLocation(file_path=file_path, line=cur_line)
+
             macros[name] = MacroModel(
                 name=name,
                 params=params,
@@ -98,21 +112,33 @@ class NativeCParserAdapter(ParserPort):
     def _parse_structs(self, text: str, file_path: str) -> dict[str, StructModel]:
         structs: dict[str, StructModel] = {}
 
-        # Matches: struct [name] { ... } [alias_t]; or typedef struct [name] { ... } alias_t;
         pattern = re.compile(
-            r"\b(?:typedef\s+)?(struct|union)\s+([a-zA-Z0-9_]+)?\s*\{([\s\S]*?)\}\s*([a-zA-Z0-9_,\s*]+)?;",
+            r"\b(?:typedef\s+)?(struct|union)\s+([a-zA-Z0-9_]+)?\s*\{",
             re.MULTILINE,
         )
 
-        for m in pattern.finditer(text):
+        pos = 0
+        cur_pos = 0
+        cur_line = 1
+
+        while pos < len(text):
+            m = pattern.search(text, pos)
+            if not m:
+                break
+
             kind = m.group(1)
             raw_name = m.group(2)
-            body = m.group(3)
-            alias = m.group(4)
 
-            name = raw_name or (alias.strip().split(",")[0].strip().strip("*") if alias else "anonymous")
-            line_no = text[:m.start()].count("\n") + 1
-            loc = SourceLocation(file_path=file_path, line=line_no)
+            body, end_pos = self._extract_braces_block(text, m.end() - 1)
+            after = text[end_pos + 1 : end_pos + 150]
+            semi_idx = after.find(";")
+            alias = after[:semi_idx].strip() if semi_idx != -1 else ""
+            pos = end_pos + (semi_idx + 1 if semi_idx != -1 else 1)
+
+            name = raw_name or (alias.split(",")[0].strip().strip("*").strip() if alias else "anonymous")
+            cur_line += text.count("\n", cur_pos, m.start())
+            cur_pos = m.start()
+            loc = SourceLocation(file_path=file_path, line=cur_line)
 
             members = self._parse_struct_members(body)
             struct_model = StructModel(
@@ -173,28 +199,28 @@ class NativeCParserAdapter(ParserPort):
 
     def _parse_typedefs(self, text: str, file_path: str) -> dict[str, TypedefModel]:
         typedefs: dict[str, TypedefModel] = {}
-        # Matches: typedef void (*callback_fn)(void*); or typedef struct buffer buffer_t;
-        for line in text.split(";"):
-            line = line.strip()
-            if not line.startswith("typedef"):
-                continue
+        cur_pos = 0
+        cur_line = 1
 
-            line_no = text.find(line)
-            line_no = text[:line_no].count("\n") + 1 if line_no != -1 else 1
-            loc = SourceLocation(file_path=file_path, line=line_no)
+        for m in re.finditer(r"\btypedef\s+([^;]+);", text):
+            full_stmt = m.group(0).strip()
+            body = m.group(1).strip()
+            cur_line += text.count("\n", cur_pos, m.start())
+            cur_pos = m.start()
+            loc = SourceLocation(file_path=file_path, line=cur_line)
 
-            # Function pointer typedef
-            fp_m = re.search(r"typedef\s+([a-zA-Z0-9_*\s]+)\(\s*\*\s*([a-zA-Z0-9_]+)\s*\)\s*\(([^)]*)\)", line)
+            # Function pointer typedef: typedef void (*callback_fn)(void*);
+            fp_m = re.search(r"([a-zA-Z0-9_*\s]+)\(\s*\*\s*([a-zA-Z0-9_]+)\s*\)\s*\(([^)]*)\)", body)
             if fp_m:
                 name = fp_m.group(2)
-                typedefs[name] = TypedefModel(name=name, target_type=line, is_function_pointer=True, location=loc)
+                typedefs[name] = TypedefModel(name=name, target_type=full_stmt, is_function_pointer=True, location=loc)
                 continue
 
             # Regular typedef: typedef struct foo_s foo_t;
-            tokens = line.split()
-            if len(tokens) >= 3:
+            tokens = body.split()
+            if len(tokens) >= 2:
                 name = tokens[-1].strip("*")
-                target = " ".join(tokens[1:-1])
+                target = " ".join(tokens[:-1])
                 typedefs[name] = TypedefModel(name=name, target_type=target, is_function_pointer=False, location=loc)
 
         return typedefs
@@ -204,28 +230,32 @@ class NativeCParserAdapter(ParserPort):
 
         # Matches function definition: [static] [inline] return_type name(args) { ... }
         fn_pattern = re.compile(
-            r"\b(static\s+|inline\s+|extern\s+)*([a-zA-Z0-9_*\s]+)\s+([a-zA-Z0-9_]+)\s*\(([\s\S]*?)\)\s*\{",
+            r"(?:^|[;{}])\s*(static\s+|inline\s+|extern\s+)*([a-zA-Z0-9_* \t]+)\s+([a-zA-Z0-9_]+)\s*\(([^;{}]*)\)\s*\{",
             re.MULTILINE,
         )
 
         pos = 0
+        cur_pos = 0
+        cur_line = 1
+
         while pos < len(text):
             m = fn_pattern.search(text, pos)
             if not m:
                 break
 
             modifiers = m.group(1) or ""
-            ret_type = m.group(2).strip()
+            ret_type = (m.group(2) or "").strip()
             name = m.group(3).strip()
             args_raw = m.group(4) or ""
 
             # Exclude control keywords that look like functions
-            if name in ("if", "while", "for", "switch", "catch", "return"):
+            if name in ("if", "while", "for", "switch", "catch", "return", "sizeof", "do", "else"):
                 pos = m.end()
                 continue
 
-            line_no = text[:m.start()].count("\n") + 1
-            loc = SourceLocation(file_path=file_path, line=line_no)
+            cur_line += text.count("\n", cur_pos, m.start())
+            cur_pos = m.start()
+            loc = SourceLocation(file_path=file_path, line=cur_line)
 
             body, end_pos = self._extract_braces_block(text, m.end() - 1)
             pos = end_pos + 1
@@ -327,20 +357,28 @@ class NativeCParserAdapter(ParserPort):
         return params
 
     def _extract_braces_block(self, text: str, start_pos: int) -> tuple[str, int]:
-        depth = 0
-        start_idx = start_pos
-        found_first = False
+        first_brace = text.find("{", start_pos)
+        if first_brace == -1:
+            return text[start_pos:], len(text)
 
-        for idx in range(start_pos, len(text)):
-            c = text[idx]
-            if c == "{":
-                if not found_first:
-                    start_idx = idx
-                    found_first = True
+        depth = 1
+        curr = first_brace + 1
+        text_len = len(text)
+
+        while curr < text_len and depth > 0:
+            next_open = text.find("{", curr)
+            next_close = text.find("}", curr)
+
+            if next_close == -1:
+                return text[first_brace + 1:], text_len
+
+            if next_open != -1 and next_open < next_close:
                 depth += 1
-            elif c == "}":
+                curr = next_open + 1
+            else:
                 depth -= 1
-                if depth == 0 and found_first:
-                    return text[start_idx + 1:idx], idx
+                if depth == 0:
+                    return text[first_brace + 1:next_close], next_close
+                curr = next_close + 1
 
-        return text[start_pos:], len(text)
+        return text[first_brace + 1:], text_len
